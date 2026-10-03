@@ -23,37 +23,41 @@
       <span class="badge" id="engine-status">Checking...</span>
     </div>
 
+    <!-- Modern Architecture Status Card -->
     <div class="status-card">
       <div class="status-row">
-        <span class="label">Context Engine</span>
-        <span class="val" id="model-name">Qwen3-8B</span>
+        <span class="label">System-1 Decision</span>
+        <span class="val" style="color: #38bdf8;">Laya 421M (Sub-ms Gating)</span>
       </div>
       <div class="status-row">
-        <span class="label">Retrieval & Rerank</span>
-        <span class="val">BGE-M3 + BGE-Reranker</span>
+        <span class="label">Context Provider</span>
+        <span class="val" style="color: #34d399;" id="provider-status">Composio Managed OAuth</span>
       </div>
       <div class="status-row">
-        <span class="label">MCP Connector</span>
-        <span class="val" style="color: #34d399;">Happenstance Connected</span>
+        <span class="label">Writing Contract</span>
+        <span class="val">5-Pass Deterministic Verifier</span>
       </div>
       <div class="status-row">
-        <span class="label">Personal Signals</span>
-        <span class="val">200 Indexed Items</span>
+        <span class="label">Long-Term Memory</span>
+        <span class="val" id="memory-stat">3 Buckets (Facts/Rels/Style)</span>
       </div>
     </div>
 
-    <!-- Source Breakdown Pill Grid -->
+    <!-- Active Connected Sources Grid -->
     <div class="sources-grid">
-      <div class="source-chip"><span class="src-icon">✉️</span> Gmail: 80</div>
-      <div class="source-chip"><span class="src-icon">📅</span> Calendar: 20</div>
-      <div class="source-chip"><span class="src-icon">💼</span> LinkedIn: 30</div>
-      <div class="source-chip"><span class="src-icon">📂</span> Drive: 50</div>
-      <div class="source-chip"><span class="src-icon">👤</span> Contacts: 20</div>
+      <div class="source-chip"><span class="src-icon">✉️</span> Gmail</div>
+      <div class="source-chip"><span class="src-icon">📅</span> Calendar</div>
+      <div class="source-chip"><span class="src-icon">💼</span> LinkedIn</div>
+      <div class="source-chip"><span class="src-icon">📂</span> Drive</div>
+      <div class="source-chip"><span class="src-icon">🌐</span> Web Grounding</div>
     </div>
 
     <div class="action-buttons">
       <button class="primary-btn" id="open-active-tab-btn">
-        ✦ Launch on Current Page
+        ✦ Focus Composer on Page
+      </button>
+      <button class="secondary-btn" id="connect-composio-btn">
+        🔗 Connect Gmail (Composio OAuth)
       </button>
       <button class="secondary-btn" id="run-benchmark-btn">
         📊 Run 3-Way Benchmark

@@ -75,9 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // In-simulator Writrieve Button Click
-  const simWrite4uBtn = document.getElementById("sim-write4u-btn");
-  simWrite4uBtn.addEventListener("click", () => {
+  // In-simulator Inline "Describe your message" Bar execution
+  const simInlineInput = document.getElementById("sim-inline-input");
+  const simInlineCreateBtn = document.getElementById("sim-inline-create-btn");
+
+  async function executeSimulatorInline() {
+    const prompt = simInlineInput.value.trim();
+    if (!prompt) return;
+
+    simInlineCreateBtn.disabled = true;
+    simInlineCreateBtn.innerText = "Writing...";
+    simInlineInput.disabled = true;
+
     const pageContext = currentSiteMode === "gmail" ? {
       site: "gmail",
       recipient: "Prof. Xavier Vance <xvance@csail.mit.edu>",
@@ -88,13 +97,54 @@ document.addEventListener("DOMContentLoaded", () => {
       subject: "CCNCPS Conference Post"
     };
 
-    if (window.Write4UI) {
-      window.Write4UI.openModal(pageContext, (cleanedDraft) => {
-        simulatedEditor.innerText = cleanedDraft;
-        updateLiveInspectionPanel();
+    try {
+      const res = await fetch(`${API_BASE}/api/v2/execute`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          prompt: prompt,
+          recipient: pageContext.recipient,
+          channel: currentSiteMode === "gmail" ? "email" : "linkedin",
+          urgency: "medium",
+          style_preset: "my_style",
+          page_context: pageContext
+        })
       });
+      const data = await res.json();
+      simulatedEditor.innerText = data.draft;
+      updateLiveInspectionPanel();
+      simInlineInput.value = "";
+    } catch (e) {
+      alert("Execution error: " + e.message);
+    } finally {
+      simInlineCreateBtn.disabled = false;
+      simInlineCreateBtn.innerText = "Create";
+      simInlineInput.disabled = false;
     }
-  });
+  }
+
+  if (simInlineCreateBtn) {
+    simInlineCreateBtn.addEventListener("click", executeSimulatorInline);
+  }
+  if (simInlineInput) {
+    simInlineInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        executeSimulatorInline();
+      }
+    });
+  }
+
+  // When toolbar ✦ button is clicked, smoothly focus the inline bar
+  const simWrite4uBtn = document.getElementById("sim-write4u-btn");
+  if (simWrite4uBtn) {
+    simWrite4uBtn.addEventListener("click", () => {
+      if (simInlineInput) {
+        simInlineInput.focus();
+        simInlineInput.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  }
 
   // Load and render Benchmark Data
   async function loadBenchmarkData() {

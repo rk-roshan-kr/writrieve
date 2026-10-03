@@ -87,17 +87,39 @@
               <span class="mail-value" id="composer-subject">Re: Continuing FieldChain Research & Adaptive Sharding Follow-up</span>
             </div>
 
-            <div class="mail-editor" id="simulated-editor" contenteditable="true" placeholder="Click [ Writrieve ✦ ] below to synthesize context and draft your grounded reply..."></div>
+            <!-- Inline "Describe your message" Pill Bar (Native Gmail / Help-me-write style) -->
+            <div class="writrieve-inline-bar" id="sim-inline-bar">
+              <div class="writrieve-inline-inner">
+                <span class="writrieve-inline-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
+                  </svg>
+                </span>
+                <input 
+                  type="text" 
+                  id="sim-inline-input" 
+                  class="writrieve-inline-input" 
+                  placeholder="Describe your message (e.g. Follow up about research discussion)..." 
+                />
+                <div class="writrieve-inline-actions">
+                  <span class="writrieve-inline-badge">Composio + Memory</span>
+                  <button type="button" id="sim-inline-create-btn" class="writrieve-inline-btn">Create</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mail-editor" id="simulated-editor" contenteditable="true" placeholder="Your grounded reply will appear directly in this composer..."></div>
 
             <div class="composer-bottom-bar">
               <div style="display: flex; gap: 8px; align-items: center;">
                 <button class="write4u-badge-btn" id="sim-write4u-btn">
                   <svg viewBox="0 0 24 24"><path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/></svg>
-                  Writrieve ✦
+                  ✦ Writrieve
                 </button>
-                <span style="font-size: 11px; color: #94a3b8;">Page Context & Happenstance Connected</span>
+                <button style="background: #1a73e8; color: white; border: none; border-radius: 18px; padding: 6px 18px; font-weight: 600; cursor: pointer; font-size: 13px;">Send</button>
+                <span style="font-size: 14px; color: #94a3b8; margin-left: 6px; letter-spacing: 2px;">Aa 🪄 📎 🔗</span>
               </div>
-              <button class="write4u-secondary-btn" onclick="document.getElementById('simulated-editor').innerText = '';">Clear Editor</button>
+              <button class="write4u-secondary-btn" onclick="document.getElementById('simulated-editor').innerText = '';">Clear</button>
             </div>
           </div>
         </div>

@@ -1,0 +1,424 @@
+[
+  {
+    "id": "contact_001",
+    "type": "contact",
+    "name": "Prof. Xavier Vance",
+    "email": "xvance@csail.mit.edu",
+    "organization": "MIT CSAIL",
+    "date": "2026-09-16T17:00:00",
+    "people": [
+      "Prof. Xavier Vance"
+    ],
+    "entities": [
+      "MIT CSAIL",
+      "Professor",
+      "Distributed Systems Lab",
+      "Professor X"
+    ],
+    "body": "Associate Professor of Computer Science, MIT CSAIL. Focus: Byzantine Fault Tolerance, Decentralized Consensus, Asynchronous State Machine Replication.",
+    "reliability": 0.99,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_xance"
+    }
+  },
+  {
+    "id": "contact_002",
+    "type": "contact",
+    "name": "Dave Wilson (Mechanic Auto Care) #1",
+    "email": "dave@autocare.com",
+    "organization": "General",
+    "date": "2025-06-11T14:00:00",
+    "people": [
+      "Dave Wilson (Mechanic Auto Care)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Dave Wilson (Mechanic Auto Care), Email: dave@autocare.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_1"
+    }
+  },
+  {
+    "id": "contact_003",
+    "type": "contact",
+    "name": "Emily Chang (College Roommate) #2",
+    "email": "emily.c@gmail.com",
+    "organization": "General",
+    "date": "2024-09-01T12:00:00",
+    "people": [
+      "Emily Chang (College Roommate)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Emily Chang (College Roommate), Email: emily.c@gmail.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_2"
+    }
+  },
+  {
+    "id": "contact_004",
+    "type": "contact",
+    "name": "Landlord Office Support #3",
+    "email": "maintenance@cityapartments.com",
+    "organization": "General",
+    "date": "2025-08-01T09:00:00",
+    "people": [
+      "Landlord Office Support"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Landlord Office Support, Email: maintenance@cityapartments.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_3"
+    }
+  },
+  {
+    "id": "contact_005",
+    "type": "contact",
+    "name": "Sarah Miller (Bay Dental Reception) #4",
+    "email": "info@baydental.com",
+    "organization": "General",
+    "date": "2025-03-10T10:00:00",
+    "people": [
+      "Sarah Miller (Bay Dental Reception)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Sarah Miller (Bay Dental Reception), Email: info@baydental.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_4"
+    }
+  },
+  {
+    "id": "contact_006",
+    "type": "contact",
+    "name": "Dave Wilson (Mechanic Auto Care) #5",
+    "email": "dave@autocare.com",
+    "organization": "General",
+    "date": "2025-06-11T14:00:00",
+    "people": [
+      "Dave Wilson (Mechanic Auto Care)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Dave Wilson (Mechanic Auto Care), Email: dave@autocare.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_5"
+    }
+  },
+  {
+    "id": "contact_007",
+    "type": "contact",
+    "name": "Emily Chang (College Roommate) #6",
+    "email": "emily.c@gmail.com",
+    "organization": "General",
+    "date": "2024-09-01T12:00:00",
+    "people": [
+      "Emily Chang (College Roommate)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Emily Chang (College Roommate), Email: emily.c@gmail.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_6"
+    }
+  },
+  {
+    "id": "contact_008",
+    "type": "contact",
+    "name": "Landlord Office Support #7",
+    "email": "maintenance@cityapartments.com",
+    "organization": "General",
+    "date": "2025-08-01T09:00:00",
+    "people": [
+      "Landlord Office Support"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Landlord Office Support, Email: maintenance@cityapartments.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_7"
+    }
+  },
+  {
+    "id": "contact_009",
+    "type": "contact",
+    "name": "Sarah Miller (Bay Dental Reception) #8",
+    "email": "info@baydental.com",
+    "organization": "General",
+    "date": "2025-03-10T10:00:00",
+    "people": [
+      "Sarah Miller (Bay Dental Reception)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Sarah Miller (Bay Dental Reception), Email: info@baydental.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_8"
+    }
+  },
+  {
+    "id": "contact_010",
+    "type": "contact",
+    "name": "Dave Wilson (Mechanic Auto Care) #9",
+    "email": "dave@autocare.com",
+    "organization": "General",
+    "date": "2025-06-11T14:00:00",
+    "people": [
+      "Dave Wilson (Mechanic Auto Care)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Dave Wilson (Mechanic Auto Care), Email: dave@autocare.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_9"
+    }
+  },
+  {
+    "id": "contact_011",
+    "type": "contact",
+    "name": "Emily Chang (College Roommate) #10",
+    "email": "emily.c@gmail.com",
+    "organization": "General",
+    "date": "2024-09-01T12:00:00",
+    "people": [
+      "Emily Chang (College Roommate)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Emily Chang (College Roommate), Email: emily.c@gmail.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_10"
+    }
+  },
+  {
+    "id": "contact_012",
+    "type": "contact",
+    "name": "Landlord Office Support #11",
+    "email": "maintenance@cityapartments.com",
+    "organization": "General",
+    "date": "2025-08-01T09:00:00",
+    "people": [
+      "Landlord Office Support"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Landlord Office Support, Email: maintenance@cityapartments.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_11"
+    }
+  },
+  {
+    "id": "contact_013",
+    "type": "contact",
+    "name": "Sarah Miller (Bay Dental Reception) #12",
+    "email": "info@baydental.com",
+    "organization": "General",
+    "date": "2025-03-10T10:00:00",
+    "people": [
+      "Sarah Miller (Bay Dental Reception)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Sarah Miller (Bay Dental Reception), Email: info@baydental.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_12"
+    }
+  },
+  {
+    "id": "contact_014",
+    "type": "contact",
+    "name": "Dave Wilson (Mechanic Auto Care) #13",
+    "email": "dave@autocare.com",
+    "organization": "General",
+    "date": "2025-06-11T14:00:00",
+    "people": [
+      "Dave Wilson (Mechanic Auto Care)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Dave Wilson (Mechanic Auto Care), Email: dave@autocare.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_13"
+    }
+  },
+  {
+    "id": "contact_015",
+    "type": "contact",
+    "name": "Emily Chang (College Roommate) #14",
+    "email": "emily.c@gmail.com",
+    "organization": "General",
+    "date": "2024-09-01T12:00:00",
+    "people": [
+      "Emily Chang (College Roommate)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Emily Chang (College Roommate), Email: emily.c@gmail.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_14"
+    }
+  },
+  {
+    "id": "contact_016",
+    "type": "contact",
+    "name": "Landlord Office Support #15",
+    "email": "maintenance@cityapartments.com",
+    "organization": "General",
+    "date": "2025-08-01T09:00:00",
+    "people": [
+      "Landlord Office Support"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Landlord Office Support, Email: maintenance@cityapartments.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_15"
+    }
+  },
+  {
+    "id": "contact_017",
+    "type": "contact",
+    "name": "Sarah Miller (Bay Dental Reception) #16",
+    "email": "info@baydental.com",
+    "organization": "General",
+    "date": "2025-03-10T10:00:00",
+    "people": [
+      "Sarah Miller (Bay Dental Reception)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Sarah Miller (Bay Dental Reception), Email: info@baydental.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_16"
+    }
+  },
+  {
+    "id": "contact_018",
+    "type": "contact",
+    "name": "Dave Wilson (Mechanic Auto Care) #17",
+    "email": "dave@autocare.com",
+    "organization": "General",
+    "date": "2025-06-11T14:00:00",
+    "people": [
+      "Dave Wilson (Mechanic Auto Care)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Dave Wilson (Mechanic Auto Care), Email: dave@autocare.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_17"
+    }
+  },
+  {
+    "id": "contact_019",
+    "type": "contact",
+    "name": "Emily Chang (College Roommate) #18",
+    "email": "emily.c@gmail.com",
+    "organization": "General",
+    "date": "2024-09-01T12:00:00",
+    "people": [
+      "Emily Chang (College Roommate)"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Emily Chang (College Roommate), Email: emily.c@gmail.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_18"
+    }
+  },
+  {
+    "id": "contact_020",
+    "type": "contact",
+    "name": "Landlord Office Support #19",
+    "email": "maintenance@cityapartments.com",
+    "organization": "General",
+    "date": "2025-08-01T09:00:00",
+    "people": [
+      "Landlord Office Support"
+    ],
+    "entities": [
+      "Contact",
+      "AddressBook"
+    ],
+    "body": "Contact: Landlord Office Support, Email: maintenance@cityapartments.com",
+    "reliability": 0.88,
+    "provenance": {
+      "provider": "happenstance",
+      "contact_id": "c_19"
+    }
+  }
+]

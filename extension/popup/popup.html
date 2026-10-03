@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Write4U Extension</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <div class="brand">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="url(#pGrad)">
+          <defs>
+            <linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#818cf8"/>
+              <stop offset="100%" stop-color="#c084fc"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
+        </svg>
+        <span class="title">Write4U</span>
+      </div>
+      <span class="badge" id="engine-status">Checking...</span>
+    </div>
+
+    <div class="status-card">
+      <div class="status-row">
+        <span class="label">Context Engine</span>
+        <span class="val" id="model-name">Qwen3-8B</span>
+      </div>
+      <div class="status-row">
+        <span class="label">Retrieval & Rerank</span>
+        <span class="val">BGE-M3 + BGE-Reranker</span>
+      </div>
+      <div class="status-row">
+        <span class="label">MCP Connector</span>
+        <span class="val" style="color: #34d399;">Happenstance Connected</span>
+      </div>
+      <div class="status-row">
+        <span class="label">Personal Signals</span>
+        <span class="val">200 Indexed Items</span>
+      </div>
+    </div>
+
+    <!-- Source Breakdown Pill Grid -->
+    <div class="sources-grid">
+      <div class="source-chip"><span class="src-icon">✉️</span> Gmail: 80</div>
+      <div class="source-chip"><span class="src-icon">📅</span> Calendar: 20</div>
+      <div class="source-chip"><span class="src-icon">💼</span> LinkedIn: 30</div>
+      <div class="source-chip"><span class="src-icon">📂</span> Drive: 50</div>
+      <div class="source-chip"><span class="src-icon">👤</span> Contacts: 20</div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="primary-btn" id="open-active-tab-btn">
+        ✦ Launch on Current Page
+      </button>
+      <button class="secondary-btn" id="run-benchmark-btn">
+        📊 Run 3-Way Benchmark
+      </button>
+      <a href="http://127.0.0.1:8000/docs" target="_blank" class="text-link">
+        View Backend OpenAPI Specs ↗
+      </a>
+    </div>
+
+    <!-- Live Benchmark Result -->
+    <div id="benchmark-view" class="benchmark-container" style="display: none;">
+      <div class="bench-title">3-Way Benchmark Evaluation</div>
+      <div id="bench-table-wrap"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

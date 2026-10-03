@@ -1,0 +1,636 @@
+[
+  {
+    "id": "linkedin_001",
+    "type": "profile",
+    "name": "Prof. Xavier Vance",
+    "role": "Associate Professor of Computer Science",
+    "organization": "MIT CSAIL",
+    "date": "2026-09-17T18:00:00",
+    "people": [
+      "Alex Rivera",
+      "Prof. Xavier Vance"
+    ],
+    "entities": [
+      "CCNCPS",
+      "FieldChain",
+      "Poster Session",
+      "Professor X"
+    ],
+    "body": "Connection Note: Prof. Xavier Vance accepted your connection request. Added note: Terrific poster presentation today Alex, let's keep in touch regarding the consensus evaluation.",
+    "reliability": 0.94,
+    "provenance": {
+      "provider": "happenstance",
+      "profile_url": "linkedin.com/in/xaviervance"
+    }
+  },
+  {
+    "id": "linkedin_002",
+    "type": "post",
+    "name": "Alex Rivera",
+    "role": "Graduate Researcher",
+    "organization": "Distributed Systems Lab",
+    "date": "2026-09-15T21:00:00",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "CCNCPS",
+      "Keynote",
+      "Xavier Vance"
+    ],
+    "body": "Post: Inspiring keynote by Prof. Xavier Vance on verifiable consensus at CCNCPS today. Looking forward to presenting our poster on adaptive sharding tomorrow!",
+    "reliability": 0.91,
+    "provenance": {
+      "provider": "happenstance",
+      "post_id": "post_8492"
+    }
+  },
+  {
+    "id": "linkedin_003",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_2"
+    }
+  },
+  {
+    "id": "linkedin_004",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_3"
+    }
+  },
+  {
+    "id": "linkedin_005",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_4"
+    }
+  },
+  {
+    "id": "linkedin_006",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_5"
+    }
+  },
+  {
+    "id": "linkedin_007",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_6"
+    }
+  },
+  {
+    "id": "linkedin_008",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_7"
+    }
+  },
+  {
+    "id": "linkedin_009",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_8"
+    }
+  },
+  {
+    "id": "linkedin_010",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_9"
+    }
+  },
+  {
+    "id": "linkedin_011",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_10"
+    }
+  },
+  {
+    "id": "linkedin_012",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_11"
+    }
+  },
+  {
+    "id": "linkedin_013",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_12"
+    }
+  },
+  {
+    "id": "linkedin_014",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_13"
+    }
+  },
+  {
+    "id": "linkedin_015",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_14"
+    }
+  },
+  {
+    "id": "linkedin_016",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_15"
+    }
+  },
+  {
+    "id": "linkedin_017",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_16"
+    }
+  },
+  {
+    "id": "linkedin_018",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_17"
+    }
+  },
+  {
+    "id": "linkedin_019",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_18"
+    }
+  },
+  {
+    "id": "linkedin_020",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_19"
+    }
+  },
+  {
+    "id": "linkedin_021",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_20"
+    }
+  },
+  {
+    "id": "linkedin_022",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_21"
+    }
+  },
+  {
+    "id": "linkedin_023",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_22"
+    }
+  },
+  {
+    "id": "linkedin_024",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_23"
+    }
+  },
+  {
+    "id": "linkedin_025",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_24"
+    }
+  },
+  {
+    "id": "linkedin_026",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_25"
+    }
+  },
+  {
+    "id": "linkedin_027",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_26"
+    }
+  },
+  {
+    "id": "linkedin_028",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-13T10:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Recruiter InMail from TechCorp: Exciting Senior Distributed Systems role in Sunnyvale.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_27"
+    }
+  },
+  {
+    "id": "linkedin_029",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-14T16:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Post liked by 14 people: Your post on system benchmarking received 14 likes.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_28"
+    }
+  },
+  {
+    "id": "linkedin_030",
+    "type": "notification",
+    "name": "LinkedIn System",
+    "role": "Platform",
+    "organization": "LinkedIn",
+    "date": "2026-09-22T12:00:00",
+    "people": [
+      "Network"
+    ],
+    "entities": [
+      "LinkedIn",
+      "Networking"
+    ],
+    "body": "Job Recommendation: Research Scientist: Based on your profile: Research Scientist at Decentral Labs.",
+    "reliability": 0.75,
+    "provenance": {
+      "provider": "happenstance",
+      "notif_id": "li_notif_29"
+    }
+  }
+]

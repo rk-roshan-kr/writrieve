@@ -1,0 +1,1769 @@
+[
+  {
+    "id": "gmail_001",
+    "type": "email",
+    "from": "xvance@csail.mit.edu",
+    "to": "alex@lab.edu",
+    "subject": "Research discussion & Byzantine consensus follow-up",
+    "date": "2026-09-18T16:45:00",
+    "people": [
+      "Prof. Xavier Vance",
+      "alex@lab.edu"
+    ],
+    "entities": [
+      "FieldChain",
+      "CCNCPS",
+      "Byzantine consensus",
+      "Adaptive Sharding",
+      "Professor X"
+    ],
+    "body": "Hi Alex, enjoyed our talk after the poster session. Let's definitely look into extending FieldChain's Byzantine consensus layer with adaptive sharding. Send me your updated benchmark numbers once ready.\nBest,\nProf. Xavier Vance (MIT CSAIL)",
+    "reliability": 0.98,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_8829",
+      "mailbox": "INBOX"
+    }
+  },
+  {
+    "id": "gmail_002",
+    "type": "email",
+    "from": "awards@ccncps2026.org",
+    "to": "alex@lab.edu",
+    "subject": "CCNCPS 2026 Best Poster Runner-Up Award",
+    "date": "2026-09-20T09:20:00",
+    "people": [
+      "CCNCPS Organizing Committee",
+      "Alex Rivera"
+    ],
+    "entities": [
+      "CCNCPS",
+      "Best Poster Runner-up",
+      "FieldChain"
+    ],
+    "body": "Congratulations! Your poster 'FieldChain: Resilient Consensus via Adaptive Sharding' was awarded Best Poster Runner-Up in the Distributed Systems track.",
+    "reliability": 0.97,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_9104"
+    }
+  },
+  {
+    "id": "gmail_003",
+    "type": "email",
+    "from": "dev-lead@lab.edu",
+    "to": "alex@lab.edu",
+    "subject": "Testbed V2 code freeze completed",
+    "date": "2026-09-22T14:10:00",
+    "people": [
+      "Alex Rivera",
+      "Dev Team"
+    ],
+    "entities": [
+      "FieldChain",
+      "Code Freeze",
+      "Benchmarks"
+    ],
+    "body": "Hi Alex, the adaptive sharding branch is merged and all testbed nodes in AWS us-east are reporting consistent 19.4k TPS. All raw telemetry logs archived in Drive.",
+    "reliability": 0.92,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_9410"
+    }
+  },
+  {
+    "id": "gmail_004",
+    "type": "email",
+    "from": "lab-director@lab.edu",
+    "to": "alex@lab.edu",
+    "subject": "Conference travel approved for CCNCPS 2026",
+    "date": "2026-09-10T14:00:00",
+    "people": [
+      "Lab Director Dr. Singh",
+      "Alex Rivera"
+    ],
+    "entities": [
+      "FieldChain",
+      "Budget approval",
+      "CCNCPS"
+    ],
+    "body": "Subject: Conference travel approved for CCNCPS 2026. Make sure to connect with faculty working on distributed storage.",
+    "reliability": 0.9,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_8301"
+    }
+  },
+  {
+    "id": "gmail_005",
+    "type": "email",
+    "from": "noise_4@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #4",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_4@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10004)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_4"
+    }
+  },
+  {
+    "id": "gmail_006",
+    "type": "email",
+    "from": "noise_5@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #5",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_5@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10005)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_5"
+    }
+  },
+  {
+    "id": "gmail_007",
+    "type": "email",
+    "from": "noise_6@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #6",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_6@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10006)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_6"
+    }
+  },
+  {
+    "id": "gmail_008",
+    "type": "email",
+    "from": "noise_7@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #7",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_7@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10007)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_7"
+    }
+  },
+  {
+    "id": "gmail_009",
+    "type": "email",
+    "from": "noise_8@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #8",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_8@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10008)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_8"
+    }
+  },
+  {
+    "id": "gmail_010",
+    "type": "email",
+    "from": "noise_9@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #9",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_9@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10009)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_9"
+    }
+  },
+  {
+    "id": "gmail_011",
+    "type": "email",
+    "from": "noise_10@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Uber Receipt: Ride to SF Airport #10",
+    "date": "2026-09-19T18:00:00",
+    "people": [
+      "noise_10@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your receipt from Uber Technologies: .20 (Message Ref: 10010)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_10"
+    }
+  },
+  {
+    "id": "gmail_012",
+    "type": "email",
+    "from": "noise_11@service.com",
+    "to": "alex@lab.edu",
+    "subject": "United Airlines: Boarding pass for flight UA412 #11",
+    "date": "2026-09-15T06:00:00",
+    "people": [
+      "noise_11@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Boarding pass to SFO. Seat 14B. (Message Ref: 10011)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_11"
+    }
+  },
+  {
+    "id": "gmail_013",
+    "type": "email",
+    "from": "noise_12@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Hilton Hotel San Francisco: Reservation Confirmation #12",
+    "date": "2026-09-14T12:00:00",
+    "people": [
+      "noise_12@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Confirmation #HIL8391 for CCNCPS stay. (Message Ref: 10012)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_12"
+    }
+  },
+  {
+    "id": "gmail_014",
+    "type": "email",
+    "from": "noise_13@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Amazon.com: Your package has been delivered #13",
+    "date": "2026-09-12T11:00:00",
+    "people": [
+      "noise_13@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Order #112-9849182 USB-C adapter delivered. (Message Ref: 10013)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_13"
+    }
+  },
+  {
+    "id": "gmail_015",
+    "type": "email",
+    "from": "noise_14@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #14",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_14@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10014)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_14"
+    }
+  },
+  {
+    "id": "gmail_016",
+    "type": "email",
+    "from": "noise_15@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #15",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_15@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10015)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_15"
+    }
+  },
+  {
+    "id": "gmail_017",
+    "type": "email",
+    "from": "noise_16@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #16",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_16@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10016)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_16"
+    }
+  },
+  {
+    "id": "gmail_018",
+    "type": "email",
+    "from": "noise_17@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #17",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_17@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10017)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_17"
+    }
+  },
+  {
+    "id": "gmail_019",
+    "type": "email",
+    "from": "noise_18@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #18",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_18@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10018)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_18"
+    }
+  },
+  {
+    "id": "gmail_020",
+    "type": "email",
+    "from": "noise_19@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #19",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_19@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10019)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_19"
+    }
+  },
+  {
+    "id": "gmail_021",
+    "type": "email",
+    "from": "noise_20@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Uber Receipt: Ride to SF Airport #20",
+    "date": "2026-09-19T18:00:00",
+    "people": [
+      "noise_20@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your receipt from Uber Technologies: .20 (Message Ref: 10020)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_20"
+    }
+  },
+  {
+    "id": "gmail_022",
+    "type": "email",
+    "from": "noise_21@service.com",
+    "to": "alex@lab.edu",
+    "subject": "United Airlines: Boarding pass for flight UA412 #21",
+    "date": "2026-09-15T06:00:00",
+    "people": [
+      "noise_21@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Boarding pass to SFO. Seat 14B. (Message Ref: 10021)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_21"
+    }
+  },
+  {
+    "id": "gmail_023",
+    "type": "email",
+    "from": "noise_22@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Hilton Hotel San Francisco: Reservation Confirmation #22",
+    "date": "2026-09-14T12:00:00",
+    "people": [
+      "noise_22@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Confirmation #HIL8391 for CCNCPS stay. (Message Ref: 10022)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_22"
+    }
+  },
+  {
+    "id": "gmail_024",
+    "type": "email",
+    "from": "noise_23@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Amazon.com: Your package has been delivered #23",
+    "date": "2026-09-12T11:00:00",
+    "people": [
+      "noise_23@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Order #112-9849182 USB-C adapter delivered. (Message Ref: 10023)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_23"
+    }
+  },
+  {
+    "id": "gmail_025",
+    "type": "email",
+    "from": "noise_24@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #24",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_24@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10024)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_24"
+    }
+  },
+  {
+    "id": "gmail_026",
+    "type": "email",
+    "from": "noise_25@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #25",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_25@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10025)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_25"
+    }
+  },
+  {
+    "id": "gmail_027",
+    "type": "email",
+    "from": "noise_26@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #26",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_26@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10026)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_26"
+    }
+  },
+  {
+    "id": "gmail_028",
+    "type": "email",
+    "from": "noise_27@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #27",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_27@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10027)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_27"
+    }
+  },
+  {
+    "id": "gmail_029",
+    "type": "email",
+    "from": "noise_28@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #28",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_28@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10028)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_28"
+    }
+  },
+  {
+    "id": "gmail_030",
+    "type": "email",
+    "from": "noise_29@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #29",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_29@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10029)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_29"
+    }
+  },
+  {
+    "id": "gmail_031",
+    "type": "email",
+    "from": "noise_30@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Uber Receipt: Ride to SF Airport #30",
+    "date": "2026-09-19T18:00:00",
+    "people": [
+      "noise_30@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your receipt from Uber Technologies: .20 (Message Ref: 10030)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_30"
+    }
+  },
+  {
+    "id": "gmail_032",
+    "type": "email",
+    "from": "noise_31@service.com",
+    "to": "alex@lab.edu",
+    "subject": "United Airlines: Boarding pass for flight UA412 #31",
+    "date": "2026-09-15T06:00:00",
+    "people": [
+      "noise_31@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Boarding pass to SFO. Seat 14B. (Message Ref: 10031)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_31"
+    }
+  },
+  {
+    "id": "gmail_033",
+    "type": "email",
+    "from": "noise_32@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Hilton Hotel San Francisco: Reservation Confirmation #32",
+    "date": "2026-09-14T12:00:00",
+    "people": [
+      "noise_32@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Confirmation #HIL8391 for CCNCPS stay. (Message Ref: 10032)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_32"
+    }
+  },
+  {
+    "id": "gmail_034",
+    "type": "email",
+    "from": "noise_33@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Amazon.com: Your package has been delivered #33",
+    "date": "2026-09-12T11:00:00",
+    "people": [
+      "noise_33@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Order #112-9849182 USB-C adapter delivered. (Message Ref: 10033)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_33"
+    }
+  },
+  {
+    "id": "gmail_035",
+    "type": "email",
+    "from": "noise_34@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #34",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_34@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10034)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_34"
+    }
+  },
+  {
+    "id": "gmail_036",
+    "type": "email",
+    "from": "noise_35@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #35",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_35@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10035)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_35"
+    }
+  },
+  {
+    "id": "gmail_037",
+    "type": "email",
+    "from": "noise_36@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #36",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_36@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10036)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_36"
+    }
+  },
+  {
+    "id": "gmail_038",
+    "type": "email",
+    "from": "noise_37@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #37",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_37@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10037)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_37"
+    }
+  },
+  {
+    "id": "gmail_039",
+    "type": "email",
+    "from": "noise_38@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #38",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_38@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10038)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_38"
+    }
+  },
+  {
+    "id": "gmail_040",
+    "type": "email",
+    "from": "noise_39@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #39",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_39@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10039)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_39"
+    }
+  },
+  {
+    "id": "gmail_041",
+    "type": "email",
+    "from": "noise_40@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Uber Receipt: Ride to SF Airport #40",
+    "date": "2026-09-19T18:00:00",
+    "people": [
+      "noise_40@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your receipt from Uber Technologies: .20 (Message Ref: 10040)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_40"
+    }
+  },
+  {
+    "id": "gmail_042",
+    "type": "email",
+    "from": "noise_41@service.com",
+    "to": "alex@lab.edu",
+    "subject": "United Airlines: Boarding pass for flight UA412 #41",
+    "date": "2026-09-15T06:00:00",
+    "people": [
+      "noise_41@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Boarding pass to SFO. Seat 14B. (Message Ref: 10041)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_41"
+    }
+  },
+  {
+    "id": "gmail_043",
+    "type": "email",
+    "from": "noise_42@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Hilton Hotel San Francisco: Reservation Confirmation #42",
+    "date": "2026-09-14T12:00:00",
+    "people": [
+      "noise_42@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Confirmation #HIL8391 for CCNCPS stay. (Message Ref: 10042)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_42"
+    }
+  },
+  {
+    "id": "gmail_044",
+    "type": "email",
+    "from": "noise_43@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Amazon.com: Your package has been delivered #43",
+    "date": "2026-09-12T11:00:00",
+    "people": [
+      "noise_43@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Order #112-9849182 USB-C adapter delivered. (Message Ref: 10043)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_43"
+    }
+  },
+  {
+    "id": "gmail_045",
+    "type": "email",
+    "from": "noise_44@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #44",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_44@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10044)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_44"
+    }
+  },
+  {
+    "id": "gmail_046",
+    "type": "email",
+    "from": "noise_45@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #45",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_45@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10045)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_45"
+    }
+  },
+  {
+    "id": "gmail_047",
+    "type": "email",
+    "from": "noise_46@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #46",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_46@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10046)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_46"
+    }
+  },
+  {
+    "id": "gmail_048",
+    "type": "email",
+    "from": "noise_47@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #47",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_47@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10047)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_47"
+    }
+  },
+  {
+    "id": "gmail_049",
+    "type": "email",
+    "from": "noise_48@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #48",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_48@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10048)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_48"
+    }
+  },
+  {
+    "id": "gmail_050",
+    "type": "email",
+    "from": "noise_49@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #49",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_49@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10049)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_49"
+    }
+  },
+  {
+    "id": "gmail_051",
+    "type": "email",
+    "from": "noise_50@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Uber Receipt: Ride to SF Airport #50",
+    "date": "2026-09-19T18:00:00",
+    "people": [
+      "noise_50@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your receipt from Uber Technologies: .20 (Message Ref: 10050)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_50"
+    }
+  },
+  {
+    "id": "gmail_052",
+    "type": "email",
+    "from": "noise_51@service.com",
+    "to": "alex@lab.edu",
+    "subject": "United Airlines: Boarding pass for flight UA412 #51",
+    "date": "2026-09-15T06:00:00",
+    "people": [
+      "noise_51@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Boarding pass to SFO. Seat 14B. (Message Ref: 10051)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_51"
+    }
+  },
+  {
+    "id": "gmail_053",
+    "type": "email",
+    "from": "noise_52@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Hilton Hotel San Francisco: Reservation Confirmation #52",
+    "date": "2026-09-14T12:00:00",
+    "people": [
+      "noise_52@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Confirmation #HIL8391 for CCNCPS stay. (Message Ref: 10052)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_52"
+    }
+  },
+  {
+    "id": "gmail_054",
+    "type": "email",
+    "from": "noise_53@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Amazon.com: Your package has been delivered #53",
+    "date": "2026-09-12T11:00:00",
+    "people": [
+      "noise_53@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Order #112-9849182 USB-C adapter delivered. (Message Ref: 10053)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_53"
+    }
+  },
+  {
+    "id": "gmail_055",
+    "type": "email",
+    "from": "noise_54@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #54",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_54@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10054)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_54"
+    }
+  },
+  {
+    "id": "gmail_056",
+    "type": "email",
+    "from": "noise_55@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #55",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_55@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10055)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_55"
+    }
+  },
+  {
+    "id": "gmail_057",
+    "type": "email",
+    "from": "noise_56@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #56",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_56@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10056)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_56"
+    }
+  },
+  {
+    "id": "gmail_058",
+    "type": "email",
+    "from": "noise_57@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #57",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_57@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10057)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_57"
+    }
+  },
+  {
+    "id": "gmail_059",
+    "type": "email",
+    "from": "noise_58@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #58",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_58@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10058)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_58"
+    }
+  },
+  {
+    "id": "gmail_060",
+    "type": "email",
+    "from": "noise_59@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #59",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_59@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10059)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_59"
+    }
+  },
+  {
+    "id": "gmail_061",
+    "type": "email",
+    "from": "noise_60@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Uber Receipt: Ride to SF Airport #60",
+    "date": "2026-09-19T18:00:00",
+    "people": [
+      "noise_60@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your receipt from Uber Technologies: .20 (Message Ref: 10060)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_60"
+    }
+  },
+  {
+    "id": "gmail_062",
+    "type": "email",
+    "from": "noise_61@service.com",
+    "to": "alex@lab.edu",
+    "subject": "United Airlines: Boarding pass for flight UA412 #61",
+    "date": "2026-09-15T06:00:00",
+    "people": [
+      "noise_61@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Boarding pass to SFO. Seat 14B. (Message Ref: 10061)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_61"
+    }
+  },
+  {
+    "id": "gmail_063",
+    "type": "email",
+    "from": "noise_62@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Hilton Hotel San Francisco: Reservation Confirmation #62",
+    "date": "2026-09-14T12:00:00",
+    "people": [
+      "noise_62@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Confirmation #HIL8391 for CCNCPS stay. (Message Ref: 10062)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_62"
+    }
+  },
+  {
+    "id": "gmail_064",
+    "type": "email",
+    "from": "noise_63@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Amazon.com: Your package has been delivered #63",
+    "date": "2026-09-12T11:00:00",
+    "people": [
+      "noise_63@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Order #112-9849182 USB-C adapter delivered. (Message Ref: 10063)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_63"
+    }
+  },
+  {
+    "id": "gmail_065",
+    "type": "email",
+    "from": "noise_64@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #64",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_64@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10064)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_64"
+    }
+  },
+  {
+    "id": "gmail_066",
+    "type": "email",
+    "from": "noise_65@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #65",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_65@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10065)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_65"
+    }
+  },
+  {
+    "id": "gmail_067",
+    "type": "email",
+    "from": "noise_66@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #66",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_66@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10066)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_66"
+    }
+  },
+  {
+    "id": "gmail_068",
+    "type": "email",
+    "from": "noise_67@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #67",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_67@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10067)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_67"
+    }
+  },
+  {
+    "id": "gmail_069",
+    "type": "email",
+    "from": "noise_68@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #68",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_68@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10068)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_68"
+    }
+  },
+  {
+    "id": "gmail_070",
+    "type": "email",
+    "from": "noise_69@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #69",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_69@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10069)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_69"
+    }
+  },
+  {
+    "id": "gmail_071",
+    "type": "email",
+    "from": "noise_70@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Uber Receipt: Ride to SF Airport #70",
+    "date": "2026-09-19T18:00:00",
+    "people": [
+      "noise_70@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your receipt from Uber Technologies: .20 (Message Ref: 10070)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_70"
+    }
+  },
+  {
+    "id": "gmail_072",
+    "type": "email",
+    "from": "noise_71@service.com",
+    "to": "alex@lab.edu",
+    "subject": "United Airlines: Boarding pass for flight UA412 #71",
+    "date": "2026-09-15T06:00:00",
+    "people": [
+      "noise_71@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Boarding pass to SFO. Seat 14B. (Message Ref: 10071)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_71"
+    }
+  },
+  {
+    "id": "gmail_073",
+    "type": "email",
+    "from": "noise_72@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Hilton Hotel San Francisco: Reservation Confirmation #72",
+    "date": "2026-09-14T12:00:00",
+    "people": [
+      "noise_72@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Confirmation #HIL8391 for CCNCPS stay. (Message Ref: 10072)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_72"
+    }
+  },
+  {
+    "id": "gmail_074",
+    "type": "email",
+    "from": "noise_73@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Amazon.com: Your package has been delivered #73",
+    "date": "2026-09-12T11:00:00",
+    "people": [
+      "noise_73@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Order #112-9849182 USB-C adapter delivered. (Message Ref: 10073)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_73"
+    }
+  },
+  {
+    "id": "gmail_075",
+    "type": "email",
+    "from": "noise_74@service.com",
+    "to": "alex@lab.edu",
+    "subject": "GitHub: Security alert for dependencies #74",
+    "date": "2026-09-21T03:00:00",
+    "people": [
+      "noise_74@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Dependabot detected moderate vulnerability in lodash. (Message Ref: 10074)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_74"
+    }
+  },
+  {
+    "id": "gmail_076",
+    "type": "email",
+    "from": "noise_75@service.com",
+    "to": "alex@lab.edu",
+    "subject": "IEEE Spectrum: Weekly Newsletter #75",
+    "date": "2026-09-17T08:00:00",
+    "people": [
+      "noise_75@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Top trends in quantum computing and neuromorphic hardware. (Message Ref: 10075)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_75"
+    }
+  },
+  {
+    "id": "gmail_077",
+    "type": "email",
+    "from": "noise_76@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Starbucks Rewards: Double Stars Day #76",
+    "date": "2026-09-16T07:30:00",
+    "people": [
+      "noise_76@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Come grab your favorite iced latte this Thursday! (Message Ref: 10076)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_76"
+    }
+  },
+  {
+    "id": "gmail_078",
+    "type": "email",
+    "from": "noise_77@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Gym Membership Renewal Notice #77",
+    "date": "2026-09-22T09:00:00",
+    "people": [
+      "noise_77@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Your monthly fitness pass will renew on October 1st. (Message Ref: 10077)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_77"
+    }
+  },
+  {
+    "id": "gmail_079",
+    "type": "email",
+    "from": "noise_78@service.com",
+    "to": "alex@lab.edu",
+    "subject": "Substack: Pragmatic Engineer Dispatch #140 #78",
+    "date": "2026-09-18T10:00:00",
+    "people": [
+      "noise_78@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Staff engineering archetypes and engineering ladders. (Message Ref: 10078)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_78"
+    }
+  },
+  {
+    "id": "gmail_080",
+    "type": "email",
+    "from": "noise_79@service.com",
+    "to": "alex@lab.edu",
+    "subject": "DoorDash: 30% off your next ramen bowl #79",
+    "date": "2026-09-16T19:30:00",
+    "people": [
+      "noise_79@service.com"
+    ],
+    "entities": [
+      "Noise",
+      "Receipt",
+      "Notification"
+    ],
+    "body": "Craving dinner? Order from Marufuku Ramen. (Message Ref: 10079)",
+    "reliability": 0.7,
+    "provenance": {
+      "provider": "happenstance",
+      "thread_id": "th_noise_79"
+    }
+  }
+]

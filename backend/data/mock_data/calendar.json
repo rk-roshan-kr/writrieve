@@ -1,0 +1,408 @@
+[
+  {
+    "id": "cal_001",
+    "type": "event",
+    "title": "30-min Coffee Chat with Prof. Xavier Vance",
+    "date": "2026-09-16T14:30:00",
+    "location": "Hall B Lobby, CCNCPS 2026, San Francisco",
+    "people": [
+      "Prof. Xavier Vance",
+      "Alex Rivera"
+    ],
+    "entities": [
+      "CCNCPS",
+      "FieldChain",
+      "Coffee Chat",
+      "Professor X"
+    ],
+    "description": "Discussed FieldChain throughput benchmarks (18k TPS), consensus latency, and co-authoring a follow-up proposal for IEEE S&P.",
+    "reliability": 0.96,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "academic_cal"
+    }
+  },
+  {
+    "id": "cal_002",
+    "type": "event",
+    "title": "CCNCPS 2026 Opening Keynote by Prof. Xavier Vance",
+    "date": "2026-09-15T09:00:00",
+    "location": "Main Auditorium",
+    "people": [
+      "Alex Rivera",
+      "Prof. Xavier Vance"
+    ],
+    "entities": [
+      "CCNCPS",
+      "Keynote",
+      "Professor X"
+    ],
+    "description": "Keynote on Zero-Overhead Proofs in P2P Nets. Attended Q&A session.",
+    "reliability": 0.93,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "academic_cal"
+    }
+  },
+  {
+    "id": "cal_003",
+    "type": "event",
+    "title": "CCNCPS 2026 Welcome Reception & Poster Setup",
+    "date": "2026-09-14T19:00:00",
+    "location": "SF Marriott Marquis",
+    "people": [
+      "Alex Rivera",
+      "Lab Colleagues"
+    ],
+    "entities": [
+      "CCNCPS",
+      "Welcome Dinner"
+    ],
+    "description": "Poster board 14 setup for FieldChain.",
+    "reliability": 0.89,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "academic_cal"
+    }
+  },
+  {
+    "id": "cal_004",
+    "type": "event",
+    "title": "Dinner with college friends #3",
+    "date": "2026-09-18T20:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Italian bistro downtown",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_005",
+    "type": "event",
+    "title": "Flight UA412 Departure #4",
+    "date": "2026-09-15T08:15:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Gate 72 SFO",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_006",
+    "type": "event",
+    "title": "Weekly Department Sync #5",
+    "date": "2026-09-10T11:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Department progress meeting in Room 402",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_007",
+    "type": "event",
+    "title": "Dentist Appointment #6",
+    "date": "2026-09-08T15:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Routine cleaning at Bay Dental",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_008",
+    "type": "event",
+    "title": "Gym - Cardio & Weights #7",
+    "date": "2026-09-17T06:30:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Personal workout session",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_009",
+    "type": "event",
+    "title": "Dinner with college friends #8",
+    "date": "2026-09-18T20:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Italian bistro downtown",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_010",
+    "type": "event",
+    "title": "Flight UA412 Departure #9",
+    "date": "2026-09-15T08:15:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Gate 72 SFO",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_011",
+    "type": "event",
+    "title": "Weekly Department Sync #10",
+    "date": "2026-09-10T11:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Department progress meeting in Room 402",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_012",
+    "type": "event",
+    "title": "Dentist Appointment #11",
+    "date": "2026-09-08T15:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Routine cleaning at Bay Dental",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_013",
+    "type": "event",
+    "title": "Gym - Cardio & Weights #12",
+    "date": "2026-09-17T06:30:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Personal workout session",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_014",
+    "type": "event",
+    "title": "Dinner with college friends #13",
+    "date": "2026-09-18T20:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Italian bistro downtown",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_015",
+    "type": "event",
+    "title": "Flight UA412 Departure #14",
+    "date": "2026-09-15T08:15:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Gate 72 SFO",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_016",
+    "type": "event",
+    "title": "Weekly Department Sync #15",
+    "date": "2026-09-10T11:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Department progress meeting in Room 402",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_017",
+    "type": "event",
+    "title": "Dentist Appointment #16",
+    "date": "2026-09-08T15:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Routine cleaning at Bay Dental",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_018",
+    "type": "event",
+    "title": "Gym - Cardio & Weights #17",
+    "date": "2026-09-17T06:30:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Personal workout session",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_019",
+    "type": "event",
+    "title": "Dinner with college friends #18",
+    "date": "2026-09-18T20:00:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Italian bistro downtown",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  },
+  {
+    "id": "cal_020",
+    "type": "event",
+    "title": "Flight UA412 Departure #19",
+    "date": "2026-09-15T08:15:00",
+    "location": "Offsite",
+    "people": [
+      "Alex Rivera"
+    ],
+    "entities": [
+      "Personal",
+      "Calendar"
+    ],
+    "description": "Gate 72 SFO",
+    "reliability": 0.82,
+    "provenance": {
+      "provider": "happenstance",
+      "calendar_id": "personal_cal"
+    }
+  }
+]

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write4U — Open-Weight Personal Context Engine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../extension/content/injected-ui.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="url(#mainGrad)">
+        <defs>
+          <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#818cf8"/>
+            <stop offset="100%" stop-color="#c084fc"/>
+          </linearGradient>
+        </defs>
+        <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
+      </svg>
+      <h1>Write4U</h1>
+      <span class="open-weight-badge">Open-Weight Context Engine</span>
+    </div>
+
+    <div class="nav-links">
+      <button class="nav-tab active" data-view="simulator-view">Live Simulator</button>
+      <button class="nav-tab" data-view="benchmark-view">3-Way Benchmark</button>
+      <button class="nav-tab" data-view="pool-view">200 Candidate Signals</button>
+      <span class="ext-badge-link" title="Load unpacked extension from /extension">
+        Chrome Extension Ready (MV3)
+      </span>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <!-- Hero Banner -->
+    <header class="hero">
+      <h2>Adaptive Context Selection for <span>Open-Weight Models</span></h2>
+      <p>
+        Instead of indiscriminate retrieval or sending 200 items into an expensive model, Write4U fuses 
+        <strong>Page Context</strong>, <strong>Personal Context</strong>, and <strong>Task Context</strong> 
+        to retrieve the minimum sufficient evidence before Qwen3 generates grounded text.
+      </p>
+      <div class="eq-callout">
+        <span>System Objective:</span>
+        <code>C* = argmax_C [ R(C,T) + G(C,T) + P(C) - &lambda;|C| - &mu;Redundancy(C) ]</code>
+      </div>
+    </header>
+
+    <!-- VIEW 1: LIVE SIMULATOR -->
+    <section id="simulator-view" class="view-panel">
+      <div class="demo-grid">
+        <!-- Mock Web Environment -->
+        <div class="mock-window">
+          <div class="mock-window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="window-url-bar" id="mock-url-bar">https://mail.google.com/mail/u/0/#inbox/compose</div>
+            <div style="width: 40px;"></div>
+          </div>
+
+          <div class="mock-tabs">
+            <button class="mock-tab-btn active" id="tab-gmail">
+              ✉️ Gmail Active Compose
+            </button>
+            <button class="mock-tab-btn" id="tab-linkedin">
+              💼 LinkedIn Post Composer
+            </button>
+          </div>
+
+          <div class="mock-window-body" id="mock-composer-area">
+            <!-- Dynamically populated Gmail or LinkedIn form -->
+            <div class="mail-header-field">
+              <span class="mail-label">To:</span>
+              <span class="mail-value" id="composer-to">Prof. Xavier Vance &lt;xvance@csail.mit.edu&gt;</span>
+            </div>
+            <div class="mail-header-field">
+              <span class="mail-label">Subject:</span>
+              <span class="mail-value" id="composer-subject">Re: Continuing FieldChain Research & Adaptive Sharding Follow-up</span>
+            </div>
+
+            <div class="mail-editor" id="simulated-editor" contenteditable="true" placeholder="Click [ Write4U ✦ ] below to synthesize context and draft your grounded reply..."></div>
+
+            <div class="composer-bottom-bar">
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <button class="write4u-badge-btn" id="sim-write4u-btn">
+                  <svg viewBox="0 0 24 24"><path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/></svg>
+                  Write4U ✦
+                </button>
+                <span style="font-size: 11px; color: #94a3b8;">Page Context & Happenstance Connected</span>
+              </div>
+              <button class="write4u-secondary-btn" onclick="document.getElementById('simulated-editor').innerText = '';">Clear Editor</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Inspection & Funnel Panel -->
+        <div class="panel-card">
+          <div class="panel-title">
+            <span>Context Orchestration Pipeline</span>
+            <span class="open-weight-badge" style="font-size: 10px;">Qwen3-8B + BGE Reranker</span>
+          </div>
+
+          <!-- Funnel -->
+          <div class="funnel-container">
+            <div class="funnel-step">
+              <span class="funnel-num" id="live-cand-num">200</span>
+              <span class="funnel-label">Signals (Happenstance)</span>
+            </div>
+            <span style="color: #64748b; font-size: 18px;">➔</span>
+            <div class="funnel-step">
+              <span class="funnel-num" id="live-rank-num">18</span>
+              <span class="funnel-label">Reranked</span>
+            </div>
+            <span style="color: #64748b; font-size: 18px;">➔</span>
+            <div class="funnel-step">
+              <span class="funnel-num" style="color: #34d399;" id="live-sel-num">9</span>
+              <span class="funnel-label">Minimum Evidence (C*)</span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Why These 9?</span>
+            <div id="live-reasons-wrap" style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #cbd5e1;">
+              <div style="display: flex; gap: 6px;"><span style="color: #34d399;">✓</span> Directly addresses Prof. Xavier Vance & FieldChain consensus</div>
+              <div style="display: flex; gap: 6px;"><span style="color: #34d399;">✓</span> Multi-source corroboration: Gmail thread #39281 + Calendar event #812</div>
+              <div style="display: flex; gap: 6px;"><span style="color: #34d399;">✓</span> Filtered out 191 noise signals (Uber receipts, dentist, airline passes)</div>
+              <div style="display: flex; gap: 6px;"><span style="color: #34d399;">✓</span> Redundancy penalty suppressed duplicate notes</div>
+            </div>
+          </div>
+
+          <!-- Evidence Drawer Items -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Active Grounding Evidence</span>
+              <span style="font-size: 11px; color: #38bdf8;">~17,400 Tokens Saved (95.5%)</span>
+            </div>
+            <div class="evidence-list" id="live-evidence-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: 3-WAY BENCHMARK EVALUATION -->
+    <section id="benchmark-view" class="view-panel" style="display: none;">
+      <div class="benchmark-section">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h3 style="font-size: 22px; font-weight: 700;">Empirical 3-Way Benchmark</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-top: 4px;">
+              Measuring token bloat, irrelevant noise rate, and factual grounding across identical tasks.
+            </p>
+          </div>
+          <button class="write4u-action-btn" id="re-run-bench-btn">
+            🔄 Re-Run Empirical Benchmark
+          </button>
+        </div>
+
+        <div class="benchmark-table-card">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>Architecture</th>
+                <th>Context Sent</th>
+                <th>Token Consumption</th>
+                <th>Irrelevant Context Rate</th>
+                <th>Factual Accuracy</th>
+                <th>Latency</th>
+              </tr>
+            </thead>
+            <tbody id="bench-table-body">
+              <!-- Dynamically loaded from /api/benchmark -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: 200 CANDIDATE SIGNALS POOL -->
+    <section id="pool-view" class="view-panel" style="display: none;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h3 style="font-size: 22px; font-weight: 700;">Happenstance MCP Candidate Pool (200 Signals)</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-top: 4px;">
+              Green cards represent the 9 selected items (C*). All 191 noise/distractor items are filtered out.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="write4u-chip filter-btn active" data-filter="all">All (200)</button>
+            <button class="write4u-chip filter-btn" data-filter="gmail">Gmail (80)</button>
+            <button class="write4u-chip filter-btn" data-filter="calendar">Calendar (20)</button>
+            <button class="write4u-chip filter-btn" data-filter="linkedin">LinkedIn (30)</button>
+            <button class="write4u-chip filter-btn" data-filter="drive">Drive (50)</button>
+            <button class="write4u-chip filter-btn" data-filter="contacts">Contacts (20)</button>
+          </div>
+        </div>
+
+        <div class="candidate-grid" id="candidate-grid-container">
+          <!-- Dynamically populated from /api/candidates -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../extension/content/injected-ui.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

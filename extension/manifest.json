@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Write4U — Open-Weight Personal Context Engine",
+  "version": "1.0.0",
+  "description": "Task-aware personal context engine that dynamically selects minimum sufficient context for open-weight AI models.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Write4U Context Engine"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "https://mail.google.com/*",
+    "https://*.linkedin.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content/injected-ui.js", "content/gmail.js"],
+      "css": ["content/injected-ui.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://*.linkedin.com/*"],
+      "js": ["content/injected-ui.js", "content/linkedin.js"],
+      "css": ["content/injected-ui.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/generic.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content/injected-ui.css", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

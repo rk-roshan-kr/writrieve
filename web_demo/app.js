@@ -51,6 +51,29 @@ document.addEventListener("DOMContentLoaded", () => {
     simulatedEditor.innerText = "";
   });
 
+  // Composio OAuth Connection Button
+  const composioBtn = document.getElementById("composio-connect-btn");
+  if (composioBtn) {
+    composioBtn.addEventListener("click", async () => {
+      composioBtn.innerText = "⏳ Generating OAuth...";
+      try {
+        const res = await fetch(`${API_BASE}/api/connect/gmail`);
+        const data = await res.json();
+        if (data.success && data.connect_url) {
+          window.open(data.connect_url, "_blank");
+          composioBtn.innerText = "✅ Link Opened";
+          setTimeout(() => { composioBtn.innerText = "🔗 Connect Gmail (Composio)"; }, 4000);
+        } else {
+          alert("Composio Connect: " + (data.error || "Please verify credentials"));
+          composioBtn.innerText = "🔗 Connect Gmail (Composio)";
+        }
+      } catch (e) {
+        alert("Failed to reach Write4U backend at " + API_BASE);
+        composioBtn.innerText = "🔗 Connect Gmail (Composio)";
+      }
+    });
+  }
+
   // In-simulator Write4U Button Click
   const simWrite4uBtn = document.getElementById("sim-write4u-btn");
   simWrite4uBtn.addEventListener("click", () => {

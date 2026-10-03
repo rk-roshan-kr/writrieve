@@ -20,6 +20,9 @@ from backend.decision.interface import DecisionAction, DecisionActionType
 from backend.orchestration.stopping import StoppingController
 from backend.orchestration.state_machine import StateMachine
 from backend.generation.writer import ContextGroundedWriter
+from backend.writing.engine import WritingTaskEngine, WritingResult
+from backend.writing.blueprints.blueprint_schema import WritingBlueprint
+from backend.writing.verification.pipeline import MultiPassVerificationReport
 
 try:
     from backend.models.schemas import ContextItem
@@ -46,6 +49,8 @@ class Write4UControllerResult(BaseModel):
     budget_summary: Dict[str, Any]
     terminal_status: TerminalStatus
     user_clarification: Optional[str] = None
+    writing_blueprint: Optional[WritingBlueprint] = None
+    verification_report: Optional[MultiPassVerificationReport] = None
 
 class Write4UContextController:
     """
@@ -61,6 +66,7 @@ class Write4UContextController:
         self.decision_model = LayaSystem1Controller()
         self.selection_engine = EvidenceSelectionEngine()
         self.writer = ContextGroundedWriter()
+        self.writing_engine = WritingTaskEngine()
 
     def execute_task(
         self,
@@ -218,17 +224,21 @@ class Write4UContextController:
                 TerminalStatus.PARTIAL if evidence_state.items else TerminalStatus.ABSTAIN
             )
 
-        # Step 5 — Generation & Output Verification
+        # Step 5 — Generation & Multi-Pass Output Verification
         draft_text = ""
         claims_verifications = []
+        writing_bp = None
+        verif_rep = None
 
         if evidence_state.terminal_status in {TerminalStatus.SUCCESS, TerminalStatus.PARTIAL}:
-            draft_text, claims = self.writer.write_and_verify(
-                user_prompt=user_prompt,
-                evidence_items=evidence_state.items,
-                tone=task.desired_tone
+            writing_result = self.writing_engine.execute_writing(
+                task=task,
+                evidence=evidence_state
             )
-            claims_verifications = [c.dict() for c in claims]
+            draft_text = writing_result.final_draft
+            writing_bp = writing_result.blueprint
+            verif_rep = writing_result.verification
+            claims_verifications = [c.model_dump() for c in verif_rep.factual_report.claims]
         elif evidence_state.terminal_status == TerminalStatus.ABSTAIN:
             draft_text = "I do not have sufficient verified evidence from your personal context to reliably draft this message without risking hallucination."
         elif evidence_state.terminal_status == TerminalStatus.ASK_USER:
@@ -243,5 +253,7 @@ class Write4UContextController:
             iteration_history=iteration_history,
             budget_summary=budget.budget_summary(),
             terminal_status=evidence_state.terminal_status,
-            user_clarification=evidence_state.clarification_prompt
+            user_clarification=evidence_state.clarification_prompt,
+            writing_blueprint=writing_bp,
+            verification_report=verif_rep
         )

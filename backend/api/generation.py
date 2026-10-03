@@ -219,5 +219,24 @@ async def execute_v2_task(req: GenerateWithPageContextRequest):
         user_prompt=req.prompt,
         page_context=req.page_context
     )
-    return result.dict()
+    return result.model_dump()
+
+@router.get("/profile")
+async def get_personal_writing_profile():
+    """
+    Returns the user's persistent Personal Writing Profile (Fingerprint)
+    and curated style compression exemplars.
+    """
+    try:
+        from backend.writing.profiles.style_profile import PersonalWritingProfile
+        from backend.writing.profiles.exemplars import ExemplarStore
+    except ImportError:
+        from writing.profiles.style_profile import PersonalWritingProfile
+        from writing.profiles.exemplars import ExemplarStore
+
+    profile = PersonalWritingProfile()
+    return {
+        "profile": profile.model_dump(),
+        "exemplars": [e.model_dump() for e in ExemplarStore.EXEMPLARS]
+    }
 

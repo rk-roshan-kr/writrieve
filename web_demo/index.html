@@ -27,6 +27,7 @@
     <div class="nav-links">
       <button class="nav-tab active" data-view="simulator-view">Live Simulator</button>
       <button class="nav-tab" data-view="benchmark-view">3-Way Benchmark</button>
+      <button class="nav-tab" data-view="profile-view">Writing Blueprint & Profile</button>
       <button class="nav-tab" data-view="pool-view">200 Candidate Signals</button>
       <button id="composio-connect-btn" class="nav-tab composio-btn" title="Connect live Gmail account via Composio Managed OAuth">🔗 Connect Gmail (Composio)</button>
       <span class="ext-badge-link" title="Load unpacked extension from /extension">
@@ -218,6 +219,84 @@
               <!-- Dynamically loaded from /api/benchmark -->
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: PERSONAL WRITING PROFILE & BLUEPRINT -->
+    <section id="profile-view" class="view-panel" style="display: none;">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div>
+          <h3 style="font-size: 22px; font-weight: 700;">Personal Writing Fingerprint & Task Blueprints</h3>
+          <p style="font-size: 14px; color: #94a3b8; margin-top: 4px;">
+            Separating <em>what to know</em> (Personal Context) from <em>how to write</em> (Writing Blueprint & Observable User Style Habits).
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+          <!-- Card 1: Email Fingerprint -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h4 style="font-size: 16px; font-weight: 600; color: #818cf8;">📧 Email Style Profile</h4>
+              <span class="open-weight-badge">Learned Habits</span>
+            </div>
+            <ul style="list-style: none; font-size: 13px; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>Formality Level:</strong> <span style="color: #34d399;">0.72 / 1.0 (Respectful / Academic)</span></li>
+              <li><strong>Target Length:</strong> ~420 characters</li>
+              <li><strong>Avg. Sentence:</strong> 16 words (balanced rhythm)</li>
+              <li><strong>Preferred Greeting:</strong> <code>Dear Professor {name},</code></li>
+              <li><strong>Preferred Closing:</strong> <code>Best regards,</code></li>
+              <li><strong>Bullet Points:</strong> Enabled for technical metrics</li>
+              <li><strong>Signature:</strong> <code>{user_name}<br>Graduate Researcher, Distributed Systems Lab</code></li>
+            </ul>
+          </div>
+
+          <!-- Card 2: LinkedIn Fingerprint -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h4 style="font-size: 16px; font-weight: 600; color: #a855f7;">💼 LinkedIn Style Profile</h4>
+              <span class="open-weight-badge">Platform Rules</span>
+            </div>
+            <ul style="list-style: none; font-size: 13px; color: #cbd5e1; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>Hard Platform Cap:</strong> 3,000 characters</li>
+              <li><strong>Target Post Length:</strong> ~1,140 characters</li>
+              <li><strong>Paragraph Density:</strong> 1–2 sentences per block</li>
+              <li><strong>Hook Style:</strong> Declarative personal announcement</li>
+              <li><strong>Hashtag Count:</strong> Exactly 4 curated technical tags</li>
+              <li><strong>Emoji Density:</strong> 0.08 (Subtle & deliberate)</li>
+              <li><strong>CTA Frequency:</strong> 20% (Open-source link / discussion)</li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Multi-Pass Verifier Pipeline -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h4 style="font-size: 16px; font-weight: 600; color: #34d399;">🛡️ Multi-Pass Verification Pipeline</h4>
+              <span class="open-weight-badge">Deterministic Guards</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px;">
+              <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: rgba(52, 211, 153, 0.1); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3);">
+                <span>Pass 1: Platform Boundaries</span>
+                <strong style="color: #34d399;">PASSED (Chars &le; 3000)</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: rgba(52, 211, 153, 0.1); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3);">
+                <span>Pass 2: Structural Grammar</span>
+                <strong style="color: #34d399;">PASSED (Greeting &rarr; Context &rarr; Next Step)</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: rgba(52, 211, 153, 0.1); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3);">
+                <span>Pass 3: Length Deviation</span>
+                <strong style="color: #34d399;">PASSED (Optimal Band)</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: rgba(52, 211, 153, 0.1); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3);">
+                <span>Pass 4: Factual Grounding</span>
+                <strong style="color: #34d399;">PASSED (0 Unsupported Claims)</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 6px 10px; background: rgba(52, 211, 153, 0.1); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.3);">
+                <span>Pass 5: Style Alignment</span>
+                <strong style="color: #34d399;">PASSED (User Fingerprint Match)</strong>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

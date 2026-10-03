@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.generation import router as generation_router
+from api.decision import router as decision_router
 from api.benchmark import run_3way_benchmark
 from connectors.factory import get_context_provider
 
@@ -26,6 +27,7 @@ app.add_middleware(
 )
 
 app.include_router(generation_router)
+app.include_router(decision_router)
 
 @app.get("/api/health")
 async def health_check():

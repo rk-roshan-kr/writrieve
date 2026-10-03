@@ -39,6 +39,8 @@
         "core/injector.js",
         "sites/gmail.js",
         "sites/linkedin.js",
+        "sites/substack.js",
+        "sites/github.js",
         "sites/generic.js",
         "core/detector.js"
       ],

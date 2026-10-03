@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03T09:32:52.248151+00:00",
+  "updated_at": "2026-10-03T10:05:32.343984+00:00",
   "memories": [
     {
       "memory_id": "mem_fact_001",
@@ -29,10 +29,10 @@
         "cal_001"
       ],
       "created_at": "2026-10-03T09:32:46.317215+00:00",
-      "last_confirmed": "2026-10-03T09:32:52.242245+00:00",
+      "last_confirmed": "2026-10-03T10:05:32.333732+00:00",
       "expires_at": null,
       "lifecycle_status": "ACTIVE",
-      "access_count": 1,
+      "access_count": 2,
       "metadata": {}
     },
     {
@@ -113,6 +113,22 @@
       ],
       "created_at": "2026-10-03T09:32:52.247898+00:00",
       "last_confirmed": "2026-10-03T09:32:52.247905+00:00",
+      "expires_at": null,
+      "lifecycle_status": "CANDIDATE",
+      "access_count": 0,
+      "metadata": {}
+    },
+    {
+      "memory_id": "mem_ext_8",
+      "type": "factual",
+      "subject": "FieldChain",
+      "fact": "Research discussion & Byzantine consensus follow-up",
+      "confidence": 0.95,
+      "sources": [
+        "gmail_001"
+      ],
+      "created_at": "2026-10-03T10:05:32.343603+00:00",
+      "last_confirmed": "2026-10-03T10:05:32.343616+00:00",
       "expires_at": null,
       "lifecycle_status": "CANDIDATE",
       "access_count": 0,

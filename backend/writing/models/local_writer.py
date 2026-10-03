@@ -1,4 +1,7 @@
+import os
 import time
+import json
+import urllib.request
 from typing import Optional
 from backend.writing.contract import WritingContract
 from backend.writing.models.base import WritingModel, WritingOutput
@@ -6,71 +9,64 @@ from backend.writing.models.base import WritingModel, WritingOutput
 class LocalGroundedWriter(WritingModel):
     """
     Local Grounded Professional Writer.
-    Operates within the RTX 3050 4GB VRAM footprint using deterministic grounded synthesis
-    and quantized instruction execution.
+    Powered by Qwen3-1.7B (qwen2.5:1.5b Q4) running locally on NVIDIA RTX 3050 (4GB VRAM)
+    via Ollama in fast non-thinking mode.
     """
 
-    def __init__(self, model_name: str = "write4u-local-grounded"):
+    def __init__(self, model_name: str = "qwen2.5:1.5b"):
         super().__init__(model_name=model_name)
+        self.ollama_endpoint = os.getenv("OLLAMA_ENDPOINT", "http://127.0.0.1:11434/api/generate")
 
     def generate(self, contract: WritingContract, revision_directive: Optional[str] = None) -> WritingOutput:
         start_time = time.time()
 
-        # Extract context and requirements
-        recipient = contract.audience.recipient or "Colleague"
-        platform = contract.constraints.platform
-
-        # Assemble structured draft based on contract sections
-        if platform == "email":
-            greeting = f"Dear {recipient}," if contract.style.formality >= 0.7 else f"Hi {recipient},"
-            
-            # Context
-            context_sentences = []
-            for ev in contract.evidence:
-                if "ccncps" in ev.claim.lower():
-                    context_sentences.append(f"It was a pleasure connecting at CCNCPS 2026 in Dubai.")
-                elif "fieldchain" in ev.claim.lower():
-                    context_sentences.append(f"I really enjoyed our discussion regarding the FieldChain throughput benchmarks (18k TPS) and Byzantine consensus.")
-            
-            if not context_sentences:
-                context_sentences.append("I am writing to follow up on our recent conversation.")
-            context_block = " ".join(context_sentences)
-
-            # Follow-up
-            followup_block = "I wanted to follow up on our research discussion and explore next steps for collaborative evaluation."
-
-            # Next step
-            next_step = "Would you be open to a brief 30-minute sync next week to align on next steps?"
-
-            # Closing
-            closing = "Best regards,\nAlex Rivera" if contract.style.formality >= 0.7 else "Best,\nAlex"
-
-            draft = f"{greeting}\n\n{context_block}\n\n{followup_block}\n\n{next_step}\n\n{closing}"
-
-        elif platform == "linkedin":
-            hook = "Excited to share insights from our presentation at CCNCPS 2026 in Dubai!"
-            body = (
-                "We showcased our latest testbed benchmarks on FieldChain, demonstrating 18k TPS "
-                "with sub-second Byzantine consensus finality.\n\n"
-                "Grateful for the engaging discussions with collaborators and distributed systems researchers. "
-                "The future of adaptive decentralized infrastructure is moving fast."
-            )
-            hashtags = "#DistributedSystems #Blockchain #CCNCPS2026 #OpenSource"
-            draft = f"{hook}\n\n{body}\n\n{hashtags}"
-
-        else:
-            draft = f"Following up regarding our discussion. Key verified points:\n" + "\n".join([f"- {e.claim}" for e in contract.evidence])
-
-        # If a targeted revision directive was supplied, apply adjustments
+        prompt = contract.render_prompt_contract()
         if revision_directive:
-            if "remove" in revision_directive.lower() or "shorten" in revision_directive.lower():
-                lines = draft.split("\n")
-                if len(lines) > 3:
-                    draft = "\n".join(lines[:-1])  # trim slightly
-            if "add explicit next step" in revision_directive.lower() and "sync" not in draft.lower():
-                draft += "\n\nLet's schedule a brief sync call next week to coordinate."
+            prompt += f"\n\nCRITICAL TARGETED REVISION DIRECTIVE:\n{revision_directive}\nRevise the draft to resolve the above issues."
 
-        latency_ms = (time.time() - start_time) * 1000 + 45.0  # simulated realistic local inference time
+        draft = None
+        # Attempt generation via local Qwen3-1.7B on Ollama
+        try:
+            payload = json.dumps({
+                "model": self.model_name,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "temperature": 0.3,
+                    "top_p": 0.9,
+                    "num_predict": 300
+                }
+            }).encode("utf-8")
+
+            req = urllib.request.Request(
+                self.ollama_endpoint,
+                data=payload,
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req, timeout=10) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                draft = result.get("response", "").strip()
+        except Exception as e:
+            print(f"[LocalGroundedWriter] Ollama fallback to deterministic assembler: {e}")
+
+        # If Ollama didn't return text, assemble deterministically from contract claims
+        if not draft:
+            recipient = contract.audience.recipient or "Colleague"
+            platform = contract.constraints.platform
+
+            if platform == "email":
+                greeting = f"Dear {recipient}," if contract.style.formality >= 0.7 else f"Hi {recipient},"
+                claims = [e.claim for e in contract.evidence]
+                body = " ".join(claims) if claims else "I am writing to follow up on our recent discussion."
+                closing = "Best regards,\nAlex Rivera" if contract.style.formality >= 0.7 else "Best,\nAlex"
+                draft = f"{greeting}\n\n{body}\n\nWould you be open to a brief sync next week to coordinate?\n\n{closing}"
+            elif platform == "linkedin":
+                claims = " ".join([e.claim for e in contract.evidence])
+                draft = f"Excited to share insights on our latest project:\n\n{claims}\n\n#DistributedSystems #OpenSource #Writrieve"
+            else:
+                draft = f"Key verified points:\n" + "\n".join([f"- {e.claim}" for e in contract.evidence])
+
+        latency_ms = (time.time() - start_time) * 1000
         tokens = len(draft.split()) * 2
 
         return WritingOutput(

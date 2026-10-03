@@ -8,12 +8,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.generation import router as generation_router
 from api.decision import router as decision_router
+from api.control_plane import router as control_plane_router
 from api.benchmark import run_3way_benchmark
 from connectors.factory import get_context_provider
 
 app = FastAPI(
-    title="Write4U — Open-Weight Personal Context Engine",
-    description="Task-aware context orchestration layer selecting minimum sufficient context for open-weight language models.",
+    title="Writrieve — Open-Weight Personal Context Engine",
+    description="Task-aware personal context orchestration layer selecting minimum sufficient context for open-weight language models.",
     version="1.0.0"
 )
 
@@ -28,6 +29,7 @@ app.add_middleware(
 
 app.include_router(generation_router)
 app.include_router(decision_router)
+app.include_router(control_plane_router)
 
 @app.get("/api/health")
 async def health_check():

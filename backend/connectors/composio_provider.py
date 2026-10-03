@@ -163,21 +163,36 @@ class ComposioContextProvider(ContextProvider):
             self._enforce_read_only(action_name)
 
             try:
-                if hasattr(self.client, "actions") and hasattr(self.client.actions, "execute"):
+                # Support both modern c.tools.execute and legacy c.actions.execute
+                res = None
+                if hasattr(self.client, "tools") and hasattr(self.client.tools, "execute"):
+                    res = self.client.tools.execute(
+                        slug=action_name,
+                        arguments={"query": query, "max_results": 10},
+                        user_id=self.user_id
+                    )
+                elif hasattr(self.client, "actions") and hasattr(self.client.actions, "execute"):
                     res = self.client.actions.execute(
                         action=action_name,
                         params={"query": query, "max_results": 10},
                         entity_id=self.user_id
                     )
+
+                if res:
                     raw_items = self._extract_raw_list(src, res)
                     for raw in raw_items:
+                        item = self._normalize_item(src, raw)
                         if item:
                             results.append(item)
             except Exception as e:
-                pass
+                print(f"[ComposioProvider] Tool execution error on {src}: {e}")
 
-        if not results and self.fallback:
-            return self.fallback.search(source=source, query=query, filters=filters)
+        # Fall back to fixture mode if enabled or to deterministic fallback provider
+        if not results:
+            if self.fixture_mode:
+                return self._load_fixtures(source, query)
+            if self.fallback:
+                return self.fallback.search(source=source, query=query, filters=filters)
 
         return results
 

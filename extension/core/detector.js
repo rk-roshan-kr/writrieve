@@ -12,6 +12,10 @@
     adapter = new window.GmailAdapter();
   } else if (hostname.includes("linkedin.com")) {
     adapter = new window.LinkedInAdapter();
+  } else if (hostname.includes("substack.com")) {
+    adapter = new window.SubstackAdapter();
+  } else if (hostname.includes("github.com")) {
+    adapter = new window.GitHubAdapter();
   } else {
     adapter = new window.GenericAdapter();
   }

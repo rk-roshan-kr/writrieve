@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  write4u-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: write4u-context-engine
+    ports:
+      - "8000:8000"
+    environment:
+      - CONTEXT_PROVIDER=mock
+      - LLM_PROVIDER=open_weights
+      - LLM_MODEL=qwen2.5:8b-instruct
+      - LAMBDA_SIZE_PENALTY=0.05
+      - MU_REDUNDANCY_PENALTY=0.15
+    volumes:
+      - ./backend/data/mock_data:/app/backend/data/mock_data:ro
+    restart: unless-stopped
+
+  # Optional local Ollama runner for fully local open-weight inference
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: write4u-ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+
+# volumes:
+#   ollama_data:

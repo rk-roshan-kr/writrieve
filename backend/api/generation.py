@@ -201,3 +201,23 @@ async def generate_response(req: GenerateWithPageContextRequest):
         selection_reasons=selection_reasons,
         pipeline_logs=pipeline_logs
     )
+
+@router.post("/v2/execute")
+async def execute_v2_task(req: GenerateWithPageContextRequest):
+    """
+    Write4U v2 Fault-Tolerant Iterative Context Engine endpoint.
+    Executes controlled iterative acquisition with explicit EvidenceState,
+    budget enforcement, entity resolution, conflict detection, and claim verification.
+    """
+    try:
+        from backend.orchestration.controller import Write4UContextController
+    except ImportError:
+        from orchestration.controller import Write4UContextController
+
+    controller = Write4UContextController()
+    result = controller.execute_task(
+        user_prompt=req.prompt,
+        page_context=req.page_context
+    )
+    return result.dict()
+

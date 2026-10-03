@@ -90,6 +90,17 @@ body {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.composio-btn {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(249, 115, 22, 0.15)) !important;
+  color: #fdba74 !important;
+  border: 1px solid rgba(249, 115, 22, 0.4) !important;
+}
+
+.composio-btn:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(249, 115, 22, 0.25)) !important;
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.35);
+}
+
 .ext-badge-link {
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   color: #ffffff !important;

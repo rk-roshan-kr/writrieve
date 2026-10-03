@@ -79,13 +79,13 @@ class MockContextProvider(ContextProvider):
 
     def search(self, query: str, filters: Optional[Dict[str, Any]] = None) -> List[ContextItem]:
         q_lower = query.lower()
+        words = [w for w in q_lower.split() if len(w) > 2]
         results: List[ContextItem] = []
         for item in self._cache.values():
             if filters and "source" in filters and item.source != filters["source"]:
                 continue
-            if (q_lower in item.content.lower() or 
-                any(q_lower in e.lower() for e in item.entities) or
-                any(q_lower in p.lower() for p in item.people)):
+            item_text = f"{item.content} {' '.join(item.entities)} {' '.join(item.people)}".lower()
+            if not words or any(w in item_text for w in words):
                 results.append(item)
         return results
 

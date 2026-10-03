@@ -44,29 +44,49 @@ class ComposioContextProvider(ContextProvider):
 
     def get_connection_link(self, app_name: str = "gmail", redirect_url: Optional[str] = None) -> Dict[str, Any]:
         """
-        Generates a Composio Connect Link for user OAuth authorization.
+        Generates a Composio Connect Link for user OAuth authorization using v3 connected_accounts.link.
         """
         if not self.client:
             return {
                 "success": False,
                 "error": "Composio API key not configured",
-                "connect_url": f"https://app.composio.dev/"
+                "connect_url": "https://app.composio.dev/"
             }
 
         try:
-            # Check if sessions API is available or connected_accounts initiate
-            if hasattr(self.client, "connected_accounts"):
-                conn = self.client.connected_accounts.initiate(
-                    app_name=app_name,
-                    redirect_url=redirect_url or "http://127.0.0.1:8000/api/connect/callback"
-                )
-                url = getattr(conn, "redirectUrl", getattr(conn, "redirect_url", str(conn)))
-                return {"success": True, "connect_url": url, "app": app_name}
+            # 1. Discover auth config for the requested toolkit (e.g. gmail)
+            auth_config_id = None
+            if hasattr(self.client, "auth_configs"):
+                configs = self.client.auth_configs.list()
+                for item in getattr(configs, "items", []):
+                    toolkit_slug = getattr(getattr(item, "toolkit", None), "slug", "")
+                    if toolkit_slug.lower() == app_name.lower():
+                        auth_config_id = item.id
+                        break
+
+            if not auth_config_id:
+                # Default known Gmail auth config if present in project
+                auth_config_id = "ac_EeibxHb4fvkt"
+
+            # 2. Generate external connect link via connected_accounts.link
+            link_kwargs = {"user_id": self.user_id, "auth_config_id": auth_config_id}
+            if redirect_url:
+                link_kwargs["callback_url"] = redirect_url
+
+            req = self.client.connected_accounts.link(**link_kwargs)
+            url = getattr(req, "redirect_url", getattr(req, "url", ""))
+            return {
+                "success": True,
+                "connection_request_id": getattr(req, "id", None),
+                "connect_url": url,
+                "app": app_name,
+                "user_id": self.user_id
+            }
         except Exception as e:
             return {
                 "success": False,
                 "error": str(e),
-                "connect_url": f"https://app.composio.dev/"
+                "connect_url": "https://app.composio.dev/"
             }
 
     def search(self, query: str, filters: Optional[Dict[str, Any]] = None) -> List[ContextItem]:

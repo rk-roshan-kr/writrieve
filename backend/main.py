@@ -62,6 +62,20 @@ async def get_all_candidates():
         "items": candidates
     }
 
+@app.get("/api/connect/{app_name}")
+async def connect_integration(app_name: str = "gmail", redirect_url: str = None):
+    """
+    Generates a real OAuth authorization link via Composio for the user.
+    """
+    provider = get_context_provider()
+    if hasattr(provider, "get_connection_link"):
+        return provider.get_connection_link(app_name=app_name, redirect_url=redirect_url)
+    return {
+        "success": False,
+        "error": "Active provider does not support live OAuth connection.",
+        "provider": provider.capabilities()["provider"]
+    }
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

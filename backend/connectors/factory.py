@@ -1,5 +1,9 @@
 import os
 from typing import Optional
+from dotenv import load_dotenv
+
+load_dotenv()
+
 try:
     from backend.connectors.base import ContextProvider
     from backend.connectors.mock_provider import MockContextProvider

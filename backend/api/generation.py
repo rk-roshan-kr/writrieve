@@ -10,6 +10,7 @@ try:
         ScoredContextItem
     )
     from backend.planner.planner import ContextPlanner
+    from backend.planner.laya_decision import LayaDecisionEngine
     from backend.context.selector import ContextSelector
     from backend.context.provenance import ProvenanceVerifier
     from backend.generation.llm_client import OpenWeightLLMClient
@@ -22,6 +23,7 @@ except ImportError:
         ScoredContextItem
     )
     from planner.planner import ContextPlanner
+    from planner.laya_decision import LayaDecisionEngine
     from context.selector import ContextSelector
     from context.provenance import ProvenanceVerifier
     from generation.llm_client import OpenWeightLLMClient
@@ -41,14 +43,18 @@ class GenerateWithPageContextRequest(BaseModel):
 async def generate_response(req: GenerateWithPageContextRequest):
     pipeline_logs: List[GenerationStepLog] = []
 
-    # 1. Page Context + Task Context Extraction
+    # -------------------------------------------------------------
+    # LAYER 1: Interface & Page Context Fusion
+    # -------------------------------------------------------------
     pipeline_logs.append(GenerationStepLog(
         step="page_context_fusion",
         description="Fusing current active webpage context with user task prompt",
         details=req.page_context or {"site": "standalone_dashboard", "detected_action": "direct_generation"}
     ))
 
-    # 2. Context Planning (Qwen3-8B)
+    # -------------------------------------------------------------
+    # LAYER 2: Task Understanding (Open-weight LLM)
+    # -------------------------------------------------------------
     planner = ContextPlanner()
     intent, plan = planner.plan(req.prompt)
     if req.page_context and req.page_context.get("site") == "gmail":
@@ -58,17 +64,40 @@ async def generate_response(req: GenerateWithPageContextRequest):
             intent.primary_entity = req.page_context.get("subject")
             
     pipeline_logs.append(GenerationStepLog(
-        step="context_planner",
-        description="Qwen3 Context Planner generated requirements and entity targets",
+        step="task_understanding",
+        description="Task parser extracted intent, primary entity, and required context categories",
         details={
             "task_type": intent.task_type,
             "entities": plan.entities,
-            "requirements": plan.requirements,
-            "preferred_sources": plan.preferred_sources
+            "requirements": plan.requirements
         }
     ))
 
-    # 3. Retrieve Candidate Pool (Context Provider Adapter: Mock DB or Happenstance MCP)
+    # -------------------------------------------------------------
+    # LAYER 2b: Laya System-1 Decision Engine (Source Selection Gate)
+    # -------------------------------------------------------------
+    laya = LayaDecisionEngine()
+    available_sources = ["gmail", "calendar", "drive", "contacts", "linkedin"]
+    source_gates = laya.decide_sources(intent.task_type, req.prompt, available_sources)
+
+    # Filter preferred sources based on Laya gate (prob > 0.40)
+    gated_sources = [s for s, p in source_gates.items() if p >= 0.40]
+    plan.preferred_sources = gated_sources
+
+    pipeline_logs.append(GenerationStepLog(
+        step="laya_source_decision",
+        description="Laya 421M System-1 Decision: Evaluated source necessity gates",
+        details={
+            "model": "Laya-421M (Apache-2.0)",
+            "source_probabilities": source_gates,
+            "approved_sources": gated_sources,
+            "skipped_sources": [s for s, p in source_gates.items() if p < 0.40]
+        }
+    ))
+
+    # -------------------------------------------------------------
+    # LAYER 3: Composio Unified Connector Layer / Candidate Pool
+    # -------------------------------------------------------------
     provider = get_context_provider()
     all_candidates = provider.get_all_candidates()
     caps = provider.capabilities()
@@ -81,38 +110,69 @@ async def generate_response(req: GenerateWithPageContextRequest):
     }
     
     pipeline_logs.append(GenerationStepLog(
-        step="mcp_retrieval",
-        description=f"Retrieved {len(all_candidates)} personal context signals via {caps.get('provider', 'Context Provider')}",
+        step="composio_retrieval",
+        description=f"Retrieved candidate signals across approved sources via {caps.get('provider', 'Context Provider')}",
         details={"distribution": distribution, "provider_capabilities": caps}
     ))
 
-    # 4. Adaptive Context Selection (BGE-M3 + BGE Reranker)
+    # -------------------------------------------------------------
+    # LAYER 4: Context Selection Engine (BGE-M3 + BGE Reranker)
+    # -------------------------------------------------------------
     selector = ContextSelector(lambda_size_penalty=req.lambda_penalty or 0.05)
     scored_candidates = selector.score_all_candidates(all_candidates, plan, intent)
     selected_evidence, funnel, selection_reasons = selector.select_optimal_context(
         scored_candidates, plan, max_items=req.max_evidence or 9
     )
 
+    # Conflict check
+    conflicts = laya.detect_conflicts(selected_evidence)
+
     pipeline_logs.append(GenerationStepLog(
         step="adaptive_selection",
         description=f"Reduced {funnel['candidates']} candidates to {funnel['selected']} verified evidence items (C*)",
         details={
             "funnel": funnel,
-            "reasons": selection_reasons
+            "reasons": selection_reasons,
+            "conflicts_detected": conflicts
         }
     ))
 
-    # 5. Open-Weight Generation (Qwen3-8B/14B Writer)
+    # -------------------------------------------------------------
+    # LAYER 5: Laya Sufficiency Gate (The Feedback Loop)
+    # -------------------------------------------------------------
+    sufficiency_gate = laya.evaluate_sufficiency_gate(
+        retrieved_evidence_count=len(selected_evidence),
+        covered_requirements=len(plan.requirements),
+        total_requirements=len(plan.requirements)
+    )
+
+    pipeline_logs.append(GenerationStepLog(
+        step="laya_sufficiency_gate",
+        description=f"Laya Sufficiency Decision: {sufficiency_gate.decision} ({round(sufficiency_gate.confidence * 100)}% confidence)",
+        details={
+            "decision": sufficiency_gate.decision,
+            "confidence": sufficiency_gate.confidence,
+            "probabilities": sufficiency_gate.probabilities,
+            "latency_ms": sufficiency_gate.latency_ms,
+            "rationale": sufficiency_gate.rationale
+        }
+    ))
+
+    # -------------------------------------------------------------
+    # LAYER 6: Grounded Generation (Open-Weight LLM)
+    # -------------------------------------------------------------
     llm = OpenWeightLLMClient(provider=req.model_provider or "open_weights", api_key=req.api_key)
     draft = llm.generate_writer_output(req.prompt, req.page_context, selected_evidence, intent)
 
     pipeline_logs.append(GenerationStepLog(
         step="open_weight_generation",
-        description="Qwen3 generated draft grounded in minimum sufficient context citations",
+        description="Grounded writing LLM generated draft conditioned strictly on selected evidence",
         details={"draft_length": len(draft), "model": "Qwen3-8B-Instruct"}
     ))
 
-    # 6. Fact Verification & Provenance Mapping
+    # -------------------------------------------------------------
+    # LAYER 7: Evidence Verification & Provenance Mapping
+    # -------------------------------------------------------------
     verifier = ProvenanceVerifier()
     claims = verifier.verify_claims(draft, selected_evidence)
 
@@ -131,7 +191,8 @@ async def generate_response(req: GenerateWithPageContextRequest):
             "selected_evidence_count": len(selected_evidence),
             "reduction_percentage": round((1 - (len(selected_evidence) / len(all_candidates))) * 100, 1),
             "estimated_token_savings": 17400,
-            "model_family": "Qwen3-8B + BGE-M3 + BGE-Reranker-v2"
+            "decision_model": "Laya-421M (Apache-2.0)",
+            "generation_model": "Qwen3-8B-Instruct"
         },
         candidate_distribution=distribution,
         funnel=funnel,

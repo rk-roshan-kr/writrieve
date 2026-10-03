@@ -18,8 +18,8 @@ def test_api_benchmark():
     assert len(data) == 3
     # Check that Write4U uses lowest token count and 0 noise
     w4u = [r for r in data if "Write4U" in r["system"]][0]
-    full = [r for r in data if "Full Context" in r["system"]][0]
-    assert w4u["tokens_used"] < full["tokens_used"]
+    normal = [r for r in data if "Normal Agent" in r["system"]][0]
+    assert w4u["tokens_used"] < normal["tokens_used"]
     assert w4u["irrelevant_context_rate"] == 0.0
 
 def test_api_generate():

@@ -2,76 +2,264 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Writrieve Extension</title>
+  <title>Writrieve — Context-Aware Writing</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div class="popup-container">
-    <div class="popup-header">
-      <div class="brand">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="url(#pGrad)">
+  <div class="popup-wrapper">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <svg class="brand-icon" width="20" height="20" viewBox="0 0 24 24" fill="url(#brandGrad)">
           <defs>
-            <linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#818cf8"/>
               <stop offset="100%" stop-color="#c084fc"/>
             </linearGradient>
           </defs>
           <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
         </svg>
-        <span class="title">Writrieve</span>
+        <div>
+          <h1 class="brand-name">Writrieve</h1>
+          <span class="brand-sub">Context-aware writing</span>
+        </div>
       </div>
-      <span class="badge" id="engine-status">Checking...</span>
+
+      <div class="header-actions">
+        <span class="status-indicator online" id="status-indicator">
+          <span class="status-dot"></span>
+          <span id="status-text">Ready</span>
+        </span>
+        <button class="icon-btn" id="toggle-settings-btn" title="Settings & Developer Tools">⚙</button>
+      </div>
+    </header>
+
+    <!-- Inline Offline Banner (Only visible if backend is unreachable) -->
+    <div class="inline-offline-banner" id="offline-banner" style="display: none;">
+      <div class="banner-content">
+        <span class="banner-icon">⚠️</span>
+        <div>
+          <strong>Backend Offline</strong>
+          <p>Start local server: <code>python -m uvicorn backend.main:app</code></p>
+        </div>
+      </div>
+      <button class="banner-retry-btn" id="retry-backend-btn">Retry</button>
     </div>
 
-    <!-- Modern Architecture Status Card -->
-    <div class="status-card">
-      <div class="status-row">
-        <span class="label">System-1 Decision</span>
-        <span class="val" style="color: #38bdf8;">Laya 421M (Sub-ms Gating)</span>
-      </div>
-      <div class="status-row">
-        <span class="label">Context Provider</span>
-        <span class="val" style="color: #34d399;" id="provider-status">Composio Managed OAuth</span>
-      </div>
-      <div class="status-row">
-        <span class="label">Writing Contract</span>
-        <span class="val">5-Pass Deterministic Verifier</span>
-      </div>
-      <div class="status-row">
-        <span class="label">Long-Term Memory</span>
-        <span class="val" id="memory-stat">3 Buckets (Facts/Rels/Style)</span>
-      </div>
-    </div>
+    <!-- Inline Toast Notification (Non-blocking) -->
+    <div class="inline-toast" id="inline-toast" style="display: none;"></div>
 
-    <!-- Active Connected Sources Grid -->
-    <div class="sources-grid">
-      <div class="source-chip"><span class="src-icon">✉️</span> Gmail</div>
-      <div class="source-chip"><span class="src-icon">📅</span> Calendar</div>
-      <div class="source-chip"><span class="src-icon">💼</span> LinkedIn</div>
-      <div class="source-chip"><span class="src-icon">📂</span> Drive</div>
-      <div class="source-chip"><span class="src-icon">🌐</span> Web Grounding</div>
-    </div>
+    <!-- MAIN VIEW CONTAINER -->
+    <main class="main-container" id="main-view">
+      
+      <!-- STATE 1: EMPTY / INPUT STATE -->
+      <section class="state-panel active" id="state-input">
+        <div class="input-card">
+          <label class="card-label">What do you want to write?</label>
+          <textarea 
+            id="task-prompt-input" 
+            class="task-textarea" 
+            placeholder="e.g. Write a follow-up to Professor Xavier about our research discussion at CCNCPS..."
+            rows="3"
+          ></textarea>
+          
+          <div class="quick-actions">
+            <button class="action-chip" data-prompt="Follow up with Professor Xavier regarding our research discussion at CCNCPS.">✉️ Follow up</button>
+            <button class="action-chip" data-prompt="Reply confirming I reviewed the latest benchmark results and propose a sync.">💬 Reply</button>
+            <button class="action-chip" data-prompt="Write a concise LinkedIn post about presenting FieldChain at CCNCPS in Dubai.">💼 LinkedIn</button>
+            <button class="action-chip" data-prompt="Rewrite this message to be more concise and academic.">⚡ Rewrite</button>
+          </div>
+        </div>
 
-    <div class="action-buttons">
-      <button class="primary-btn" id="open-active-tab-btn">
-        ✦ Focus Composer on Page
-      </button>
-      <button class="secondary-btn" id="connect-composio-btn">
-        🔗 Connect Gmail (Composio OAuth)
-      </button>
-      <button class="secondary-btn" id="run-benchmark-btn">
-        📊 Run 3-Way Benchmark
-      </button>
-      <a href="http://127.0.0.1:8000/docs" target="_blank" class="text-link">
-        View Backend OpenAPI Specs ↗
-      </a>
-    </div>
+        <!-- Live Context Summary Card -->
+        <div class="context-card">
+          <div class="context-header">
+            <span class="context-title">PERSONAL CONTEXT</span>
+            <span class="context-badge">Composio OAuth</span>
+          </div>
 
-    <!-- Live Benchmark Result -->
-    <div id="benchmark-view" class="benchmark-container" style="display: none;">
-      <div class="bench-title">3-Way Benchmark Evaluation</div>
-      <div id="bench-table-wrap"></div>
-    </div>
+          <div class="context-items-list">
+            <div class="context-item">
+              <span class="item-check">✓</span>
+              <span class="item-name">Gmail</span>
+              <span class="item-status connected">Connected</span>
+            </div>
+            <div class="context-item">
+              <span class="item-check">✓</span>
+              <span class="item-name">Google Calendar</span>
+              <span class="item-status connected">Connected</span>
+            </div>
+            <div class="context-item">
+              <span class="item-check">✓</span>
+              <span class="item-name">Structured Long-Term Memory</span>
+              <span class="item-status connected" id="memory-pill">Active</span>
+            </div>
+            <div class="context-item">
+              <span class="item-sparkle">✦</span>
+              <span class="item-name">Personal Writing Style</span>
+              <span class="item-status style">Fingerprint Applied</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="primary-cta-btn" id="generate-draft-btn">
+          <span>✦ Generate Grounded Draft</span>
+        </button>
+      </section>
+
+      <!-- STATE 2: THINKING / PROGRESS STATE -->
+      <section class="state-panel" id="state-thinking" style="display: none;">
+        <div class="thinking-header">
+          <div class="thinking-spinner"></div>
+          <div>
+            <h2 class="thinking-title" id="thinking-task-name">Retrieving your context...</h2>
+            <p class="thinking-sub">Grounded via Composio and verified evidence</p>
+          </div>
+        </div>
+
+        <div class="steps-checklist">
+          <div class="step-row done" id="step-1">
+            <span class="step-icon">✓</span>
+            <span class="step-label">Task understood & blueprint configured</span>
+          </div>
+          <div class="step-row done" id="step-2">
+            <span class="step-icon">✓</span>
+            <span class="step-label" id="step-gmail-text">Found 3 relevant emails in Gmail</span>
+          </div>
+          <div class="step-row done" id="step-3">
+            <span class="step-icon">✓</span>
+            <span class="step-label" id="step-cal-text">Found 1 calendar event (CCNCPS Dubai)</span>
+          </div>
+          <div class="step-row done" id="step-4">
+            <span class="step-icon">✓</span>
+            <span class="step-label">Matched personal writing habits & tone</span>
+          </div>
+          <div class="step-row active" id="step-5">
+            <span class="step-icon">◐</span>
+            <span class="step-label">Compiling writing contract & verifying claims...</span>
+          </div>
+        </div>
+
+        <div class="context-used-box">
+          <span class="context-used-title">Evidence Gathered</span>
+          <div class="context-pill-tags" id="thinking-pill-tags">
+            <span class="evidence-pill">Gmail × 3</span>
+            <span class="evidence-pill">Calendar × 1</span>
+            <span class="evidence-pill">Memory Facts</span>
+            <span class="evidence-pill">CCNCPS 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATE 3: RESULT / VERIFIED DRAFT STATE -->
+      <section class="state-panel" id="state-result" style="display: none;">
+        <div class="result-header">
+          <span class="result-badge" id="result-type-badge">Grounded Draft</span>
+          <button class="back-link-btn" id="result-new-prompt-btn">← New Prompt</button>
+        </div>
+
+        <div class="draft-display-box" id="result-draft-content" contenteditable="true">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="verification-strip">
+          <div class="verify-badge">
+            <span class="verify-check">✓</span>
+            <span>Verified against your context (Zero Hallucination)</span>
+          </div>
+          <div class="verify-sources" id="verify-sources-text">
+            Sources: Gmail · Calendar · Memory Triad
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="primary-cta-btn" id="insert-into-page-btn">
+            ✦ Insert into Page
+          </button>
+          <div class="secondary-actions-row">
+            <button class="secondary-action-btn" id="copy-draft-btn">📋 Copy</button>
+            <button class="secondary-action-btn" id="regenerate-draft-btn">🔄 Regenerate</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SETTINGS & DEVELOPER VIEW (Drawer) -->
+    <aside class="settings-drawer" id="settings-view" style="display: none;">
+      <div class="settings-header">
+        <h2>Settings & Developer</h2>
+        <button class="icon-btn" id="close-settings-btn">&times;</button>
+      </div>
+
+      <div class="settings-content">
+        <!-- Section: Connected Accounts -->
+        <div class="settings-section">
+          <h3>Connected Accounts</h3>
+          <p class="section-desc">Manage OAuth access via Composio platform</p>
+          
+          <div class="settings-row">
+            <div>
+              <strong>Gmail</strong>
+              <div class="sub-text">Read-only message retrieval</div>
+            </div>
+            <button class="setting-btn" id="oauth-connect-gmail-btn">Connect (OAuth)</button>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <strong>Google Calendar</strong>
+              <div class="sub-text">Event & meeting context</div>
+            </div>
+            <span class="setting-badge-connected">Authorized</span>
+          </div>
+
+          <div class="settings-row">
+            <div>
+              <strong>Google Drive</strong>
+              <div class="sub-text">Documents & research notes</div>
+            </div>
+            <span class="setting-badge-connected">Authorized</span>
+          </div>
+        </div>
+
+        <!-- Section: Long-Term Memory -->
+        <div class="settings-section">
+          <h3>Memory Triad</h3>
+          <p class="section-desc">Locally stored facts, relationships, and writing habits</p>
+          <div class="memory-stats-grid" id="settings-memory-stats">
+            <div class="mem-stat-card">
+              <span class="mem-stat-num" id="mem-facts-count">3</span>
+              <span class="mem-stat-label">Facts</span>
+            </div>
+            <div class="mem-stat-card">
+              <span class="mem-stat-num" id="mem-rels-count">2</span>
+              <span class="mem-stat-label">Entities</span>
+            </div>
+            <div class="mem-stat-card">
+              <span class="mem-stat-num" id="mem-style-count">7</span>
+              <span class="mem-stat-label">Style Traits</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Developer & Benchmarks -->
+        <div class="settings-section">
+          <h3>Developer & Benchmarks</h3>
+          <p class="section-desc">Inspection, benchmark evaluation, and API endpoints</p>
+
+          <div class="dev-actions">
+            <button class="secondary-action-btn" id="run-benchmark-btn">
+              📊 Run 3-Way Benchmark
+            </button>
+            <a href="http://127.0.0.1:8000/docs" target="_blank" class="dev-link">
+              Open FastAPI Swagger Docs ↗
+            </a>
+          </div>
+
+          <div id="benchmark-results-wrap" style="display: none; margin-top: 10px;"></div>
+        </div>
+      </div>
+    </aside>
   </div>
 
   <script src="popup.js"></script>

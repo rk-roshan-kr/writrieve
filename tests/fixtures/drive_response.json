@@ -1,0 +1,11 @@
+{
+  "files": [
+    {
+      "id": "drive_1092",
+      "name": "FieldChain_V2_Benchmark_Report.pdf",
+      "mimeType": "application/pdf",
+      "modifiedTime": "2026-09-12T18:00:00Z",
+      "snippet": "Latest testbed benchmarks demonstrate 19.4k TPS across 128 geographically distributed validator nodes with 42ms consensus finality."
+    }
+  ]
+}

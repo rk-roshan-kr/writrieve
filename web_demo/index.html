@@ -28,6 +28,7 @@
       <button class="nav-tab active" data-view="simulator-view">Live Simulator</button>
       <button class="nav-tab" data-view="benchmark-view">3-Way Benchmark</button>
       <button class="nav-tab" data-view="profile-view">Writing Blueprint & Profile</button>
+      <button class="nav-tab" data-view="memory-view">Long-Term Memory</button>
       <button class="nav-tab" data-view="pool-view">200 Candidate Signals</button>
       <button id="composio-connect-btn" class="nav-tab composio-btn" title="Connect live Gmail account via Composio Managed OAuth">🔗 Connect Gmail (Composio)</button>
       <span class="ext-badge-link" title="Load unpacked extension from /extension">
@@ -326,8 +327,67 @@
         </div>
       </div>
     </section>
+
+    <!-- VIEW: LONG-TERM STRUCTURED MEMORY -->
+    <section id="memory-view" class="view-panel" style="display: none;">
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+          <div>
+            <h3 style="font-size: 22px; font-weight: 700;">Structured Long-Term Memory (Context Triad)</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-top: 4px;">
+              Persistent knowledge store partitioned into three structured buckets. Zero-latency prior context retrieved before invoking live external APIs.
+            </p>
+          </div>
+          <button class="write4u-action-btn" id="refresh-memory-btn" style="padding: 8px 16px;">
+            🔄 Refresh Memory
+          </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+          <!-- Bucket 1: Verified Facts -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h4 style="font-size: 16px; font-weight: 600; color: #38bdf8;">🧠 Verified Facts & Research</h4>
+              <span class="open-weight-badge" id="facts-count-badge">0 Facts</span>
+            </div>
+            <div id="facts-memory-list" style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <div style="color: #94a3b8;">Loading verified facts...</div>
+            </div>
+          </div>
+
+          <!-- Bucket 2: Relationships & Entities -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h4 style="font-size: 16px; font-weight: 600; color: #a78bfa;">👥 Relationships & Affiliations</h4>
+              <span class="open-weight-badge" id="rel-count-badge">0 People</span>
+            </div>
+            <div id="rel-memory-list" style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <div style="color: #94a3b8;">Loading relationship records...</div>
+            </div>
+          </div>
+
+          <!-- Bucket 3: Writing Style Habits -->
+          <div class="card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h4 style="font-size: 16px; font-weight: 600; color: #34d399;">✍️ Writing Style Habits</h4>
+              <span class="open-weight-badge">Learned Traits</span>
+            </div>
+            <div id="style-memory-list" style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+              <div style="color: #94a3b8;">Loading writing style habits...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- Modular Write4U Extension Scripts -->
+  <script src="../extension/core/site-adapter.js"></script>
+  <script src="../extension/core/messaging.js"></script>
+  <script src="../extension/core/injector.js"></script>
+  <script src="../extension/sites/gmail.js"></script>
+  <script src="../extension/sites/linkedin.js"></script>
+  <script src="../extension/sites/generic.js"></script>
   <script src="../extension/content/injected-ui.js"></script>
   <script src="app.js"></script>
 </body>

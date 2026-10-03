@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (tab.dataset.view === "benchmark-view") loadBenchmarkData();
       if (tab.dataset.view === "pool-view") loadCandidatePool("all");
+      if (tab.dataset.view === "memory-view") loadMemoryData();
     });
   });
 
@@ -208,4 +209,87 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
   updateLiveInspectionPanel();
+
+  // Load Structured Long-Term Memory
+  async function loadMemoryData() {
+    const factsList = document.getElementById("facts-memory-list");
+    const relList = document.getElementById("rel-memory-list");
+    const styleList = document.getElementById("style-memory-list");
+    const factsBadge = document.getElementById("facts-count-badge");
+    const relBadge = document.getElementById("rel-count-badge");
+
+    try {
+      const res = await fetch(`${API_BASE}/api/memory`);
+      const data = await res.json();
+
+      // Bucket 1: Facts
+      factsBadge.innerText = `${data.facts_count || (data.facts ? data.facts.length : 0)} Facts`;
+      if (data.facts && data.facts.length > 0) {
+        factsList.innerHTML = data.facts.map(f => `
+          <div style="padding: 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 600; color: #38bdf8; font-size: 12px;">
+              <span>${f.topic || 'Fact'}</span>
+              <span style="color: #34d399;">${f.lifecycle_status || 'CONFIRMED'} (${Math.round((f.confidence || 0.95)*100)}%)</span>
+            </div>
+            <div style="color: #e2e8f0; margin-top: 4px; font-size: 13px;">${f.fact}</div>
+          </div>
+        `).join("");
+      } else {
+        factsList.innerHTML = `<div style="color: #94a3b8;">No verified facts found.</div>`;
+      }
+
+      // Bucket 2: Relationships
+      relBadge.innerText = `${data.relationships_count || (data.relationships ? data.relationships.length : 0)} Entities`;
+      if (data.relationships && data.relationships.length > 0) {
+        relList.innerHTML = data.relationships.map(r => `
+          <div style="padding: 10px; background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 600; color: #a78bfa; font-size: 12px;">
+              <span>${r.person_name}</span>
+              <span style="color: #cbd5e1;">${r.relationship || 'Collaborator'}</span>
+            </div>
+            <div style="color: #94a3b8; font-size: 12px; margin-top: 3px;">Affiliation: ${r.affiliation || 'Academic Research'}</div>
+            <div style="color: #cbd5e1; font-size: 12px; margin-top: 4px;">Context: ${r.shared_context || 'N/A'}</div>
+          </div>
+        `).join("");
+      } else {
+        relList.innerHTML = `<div style="color: #94a3b8;">No relationship entries found.</div>`;
+      }
+
+      // Bucket 3: Style Habits
+      if (data.writing_style) {
+        const habits = data.writing_style.observed_habits || [];
+        styleList.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="padding: 8px 12px; background: rgba(52, 211, 153, 0.08); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.2);">
+              <span style="color: #94a3b8; font-size: 12px;">Preferred Greeting:</span>
+              <div style="color: #34d399; font-weight: 600;">${data.writing_style.preferred_greeting || 'Dear Professor {name},'}</div>
+            </div>
+            <div style="padding: 8px 12px; background: rgba(52, 211, 153, 0.08); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.2);">
+              <span style="color: #94a3b8; font-size: 12px;">Preferred Closing:</span>
+              <div style="color: #34d399; font-weight: 600;">${data.writing_style.preferred_closing || 'Best regards,\nAlex Rivera'}</div>
+            </div>
+            <div style="padding: 8px 12px; background: rgba(52, 211, 153, 0.08); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.2);">
+              <span style="color: #94a3b8; font-size: 12px;">Sentence Length / Density:</span>
+              <div style="color: #e2e8f0;">${data.writing_style.sentence_length_preference || 'Medium (14-18 words per sentence)'}</div>
+            </div>
+            <div style="padding: 8px 12px; background: rgba(52, 211, 153, 0.08); border-radius: 6px; border: 1px solid rgba(52, 211, 153, 0.2);">
+              <span style="color: #94a3b8; font-size: 12px;">Observed Writing Habits:</span>
+              <div style="color: #cbd5e1; font-size: 12px; margin-top: 4px;">
+                ${habits.map(h => `• ${h}`).join("<br>")}
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        styleList.innerHTML = `<div style="color: #94a3b8;">No style habits found.</div>`;
+      }
+    } catch (e) {
+      factsList.innerHTML = `<div style="color: #ef4444;">Failed to load memory: Ensure backend is running.</div>`;
+    }
+  }
+
+  const refreshMemBtn = document.getElementById("refresh-memory-btn");
+  if (refreshMemBtn) {
+    refreshMemBtn.addEventListener("click", loadMemoryData);
+  }
 });

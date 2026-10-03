@@ -1,0 +1,16 @@
+{
+  "events": [
+    {
+      "id": "cal_9182",
+      "summary": "Coffee with Prof. Xavier Vance (CCNCPS 2026)",
+      "start": { "dateTime": "2026-09-15T10:00:00Z" },
+      "end": { "dateTime": "2026-09-15T10:45:00Z" },
+      "location": "Lobby Lounge, Grand Hyatt Dubai",
+      "description": "Discussed FieldChain throughput benchmarks (18k TPS), multi-region sharding, and potential co-authorship for IEEE S&P 2027.",
+      "attendees": [
+        { "email": "xvance@csail.mit.edu", "displayName": "Prof. Xavier Vance" },
+        { "email": "alex.rivera@cs.stanford.edu", "displayName": "Alex Rivera" }
+      ]
+    }
+  ]
+}

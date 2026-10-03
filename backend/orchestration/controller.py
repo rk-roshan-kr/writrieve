@@ -23,6 +23,12 @@ from backend.generation.writer import ContextGroundedWriter
 from backend.writing.engine import WritingTaskEngine, WritingResult
 from backend.writing.blueprints.blueprint_schema import WritingBlueprint
 from backend.writing.verification.pipeline import MultiPassVerificationReport
+from backend.memory.store import MemoryStore
+from backend.memory.retriever import MemoryRetriever
+from backend.memory.extractor import MemoryExtractor
+from backend.retrieval.web_broker import WebSearchBroker
+from backend.orchestration.source_router import SourceRouter, SourcePlan
+from backend.writing.evidence_packet import WritingEvidencePacket
 
 try:
     from backend.models.schemas import ContextItem
@@ -51,6 +57,8 @@ class Write4UControllerResult(BaseModel):
     user_clarification: Optional[str] = None
     writing_blueprint: Optional[WritingBlueprint] = None
     verification_report: Optional[MultiPassVerificationReport] = None
+    retrieved_memories_count: int = 0
+    new_memories_extracted_count: int = 0
 
 class Write4UContextController:
     """
@@ -67,6 +75,9 @@ class Write4UContextController:
         self.selection_engine = EvidenceSelectionEngine()
         self.writer = ContextGroundedWriter()
         self.writing_engine = WritingTaskEngine()
+        self.memory_store = MemoryStore()
+        self.memory_retriever = MemoryRetriever(self.memory_store)
+        self.web_broker = WebSearchBroker()
 
     def execute_task(
         self,
@@ -96,8 +107,8 @@ class Write4UContextController:
             terminal_status=TerminalStatus.ACQUIRING
         )
 
-        # If entity resolution is ambiguous, immediately transition to ASK_USER
-        if resolved_entity.is_ambiguous:
+        # If entity resolution is ambiguous for an intended recipient, pause for clarification
+        if task.target_entity and resolved_entity.is_ambiguous:
             evidence_state.terminal_status = TerminalStatus.ASK_USER
             evidence_state.clarification_prompt = (
                 f"Multiple identities match '{task.target_entity}': "
@@ -117,6 +128,25 @@ class Write4UContextController:
 
         accumulated_candidates: List[ContextItem] = []
         iteration_history: List[IterationLog] = []
+
+        # Step 3b — Long-term Memory Retrieval (Query memory before live sources)
+        memory_bundle = self.memory_retriever.retrieve_for_task(task)
+        retrieved_mem_count = len(memory_bundle["context_items"])
+        if retrieved_mem_count > 0:
+            accumulated_candidates.extend(memory_bundle["context_items"])
+            evidence_state.items = list(memory_bundle["context_items"])
+            evidence_state.sources_used.append("personal_memory")
+            conf_scores = ConfidenceEstimator.evaluate(evidence_state, requirements)
+            evidence_state.confidence_scores = conf_scores
+
+        # Step 3c — External Web Search (Establish official background context)
+        source_plan = SourceRouter.plan_sources(task)
+        if "web" in source_plan.external_sources:
+            web_query = task.event_context or f"{task.user_prompt} conference"
+            web_candidates = self.web_broker.search_web(web_query)
+            if web_candidates:
+                accumulated_candidates.extend(web_candidates)
+                evidence_state.sources_used.append("web")
 
         # Step 4 — The Controlled Iterative Acquisition Loop
         while not budget.is_exhausted() and evidence_state.terminal_status == TerminalStatus.ACQUIRING:
@@ -238,11 +268,36 @@ class Write4UContextController:
             draft_text = writing_result.final_draft
             writing_bp = writing_result.blueprint
             verif_rep = writing_result.verification
+
+            # Closed-Loop Feedback: If unsupported claims exist, attempt targeted re-retrieval
+            if verif_rep.factual_report.has_unsupported_claims and not budget.is_exhausted():
+                unsupported_claims = [c for c in verif_rep.factual_report.claims if c.status == "UNSUPPORTED"]
+                recovered_count = 0
+                for unsupp in unsupported_claims:
+                    clean_words = [w for w in unsupp.claim_text.split() if len(w) > 4 and w.isalnum()]
+                    if clean_words:
+                        targeted_q = " ".join(clean_words[:4])
+                        recovered_candidates = self.broker.discover_candidates("gmail", targeted_q, budget)
+                        if recovered_candidates:
+                            evidence_state.items.extend(recovered_candidates)
+                            recovered_count += 1
+                if recovered_count > 0:
+                    # Re-verify and update draft with newly verified context
+                    re_result = self.writing_engine.execute_writing(task=task, evidence=evidence_state)
+                    draft_text = re_result.final_draft
+                    verif_rep = re_result.verification
+
             claims_verifications = [c.model_dump() for c in verif_rep.factual_report.claims]
         elif evidence_state.terminal_status == TerminalStatus.ABSTAIN:
             draft_text = "I do not have sufficient verified evidence from your personal context to reliably draft this message without risking hallucination."
         elif evidence_state.terminal_status == TerminalStatus.ASK_USER:
             draft_text = f"Clarification requested: {evidence_state.clarification_prompt}"
+
+        # Step 6 — Progressive Memory Extraction ("Memory Update?")
+        new_memories = MemoryExtractor.extract_from_evidence(
+            evidence_items=evidence_state.items,
+            store=self.memory_store
+        )
 
         return Write4UControllerResult(
             task=task,
@@ -255,5 +310,7 @@ class Write4UContextController:
             terminal_status=evidence_state.terminal_status,
             user_clarification=evidence_state.clarification_prompt,
             writing_blueprint=writing_bp,
-            verification_report=verif_rep
+            verification_report=verif_rep,
+            retrieved_memories_count=retrieved_mem_count,
+            new_memories_extracted_count=len(new_memories)
         )

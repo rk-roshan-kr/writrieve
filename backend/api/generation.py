@@ -240,3 +240,22 @@ async def get_personal_writing_profile():
         "exemplars": [e.model_dump() for e in ExemplarStore.EXEMPLARS]
     }
 
+@router.get("/memory")
+async def get_personal_memory_buckets():
+    """
+    Returns the user's persistent long-term memory across facts, relationships, and writing style.
+    """
+    try:
+        from backend.memory.store import MemoryStore
+    except ImportError:
+        from memory.store import MemoryStore
+
+    store = MemoryStore()
+    all_mems = store.get_all_memories()
+    return {
+        "total_memories": len(all_mems),
+        "facts": [m.model_dump() for m in all_mems if m.type == "factual"],
+        "styles": [m.model_dump() for m in all_mems if m.type == "writing_style"],
+        "relationships": [r.model_dump() for r in store._relationships.values()]
+    }
+

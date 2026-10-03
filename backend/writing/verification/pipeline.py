@@ -22,6 +22,20 @@ class MultiPassVerificationReport(BaseModel):
     factual_report: FactualVerificationResult
     feedback_notes: List[str] = Field(default_factory=list)
 
+    @property
+    def all_passed(self) -> bool:
+        return self.overall_status == "PASSED"
+
+    @property
+    def failures(self) -> List[str]:
+        fails = []
+        if not self.pass_1_platform: fails.append("Platform limit exceeded")
+        if not self.pass_2_structure: fails.append("Missing required structure section")
+        if not self.pass_3_length: fails.append("Length target deviation")
+        if not self.pass_4_factual: fails.append("Factual grounding violation")
+        if not self.pass_5_style: fails.append("Style deviation")
+        return fails
+
 class MultiPassVerificationPipeline:
     """
     Orchestrates the multi-pass verification pipeline:

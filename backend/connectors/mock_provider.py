@@ -74,10 +74,24 @@ class MockContextProvider(ContextProvider):
     def get_all_candidates(self) -> List[ContextItem]:
         return list(self._cache.values())
 
-    def get(self, item_id: str) -> Optional[ContextItem]:
+    def get(self, item_id: str, source: Optional[str] = None) -> Optional[ContextItem]:
         return self._cache.get(item_id)
 
-    def search(self, query: str, filters: Optional[Dict[str, Any]] = None) -> List[ContextItem]:
+    def search(
+        self,
+        source: Optional[str] = None,
+        query: str = "",
+        filters: Optional[Dict[str, Any]] = None
+    ) -> List[ContextItem]:
+        # Backward compatibility: if first arg is query
+        if source and source not in ["gmail", "calendar", "drive", "linkedin", "contacts", "all"] and not query:
+            query = source
+            source = None
+
+        if source and source != "all":
+            filters = dict(filters or {})
+            filters["source"] = source
+
         q_lower = query.lower()
         words = [w for w in q_lower.split() if len(w) > 2]
         results: List[ContextItem] = []

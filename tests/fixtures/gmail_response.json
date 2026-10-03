@@ -1,0 +1,22 @@
+{
+  "messages": [
+    {
+      "id": "gmail_8291",
+      "threadId": "thread_8291",
+      "date": "2026-09-16T14:30:00Z",
+      "from": "Prof. Xavier Vance <xvance@csail.mit.edu>",
+      "to": "alex.rivera@cs.stanford.edu",
+      "subject": "Re: Continuing FieldChain Research & Adaptive Sharding Follow-up",
+      "snippet": "Great catching up at CCNCPS 2026 in Dubai. Your presentation on Byzantine fault tolerance and adaptive sharding in FieldChain was very compelling. Let's arrange a follow-up sync to discuss joint research on multi-cluster consensus."
+    },
+    {
+      "id": "gmail_40112",
+      "threadId": "thread_40112",
+      "date": "2026-09-17T09:15:00Z",
+      "from": "Dr. Elena Rostova <erostova@inf.ethz.ch>",
+      "to": "alex.rivera@cs.stanford.edu",
+      "subject": "CCNCPS 2026 Presentation Slides Request",
+      "snippet": "Alex, could you share the slide deck from your CCNCPS session on distributed shard orchestration? We are benchmarking similar metrics on our campus testbed."
+    }
+  ]
+}

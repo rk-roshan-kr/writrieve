@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Write4U — Open-Weight Personal Context Engine",
-  "version": "1.0.0",
-  "description": "Task-aware personal context engine that dynamically selects minimum sufficient context for open-weight AI models.",
+  "name": "Write4U — Open-Weight Personal Context & Writing Engine",
+  "version": "2.0.0",
+  "description": "Native writing augmentation layer for Gmail, LinkedIn, and the web. Powered by Composio context, long-term memory, and open-weight models.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -17,7 +17,8 @@
   },
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "contextMenus"
   ],
   "host_permissions": [
     "http://127.0.0.1:8000/*",
@@ -27,26 +28,32 @@
   ],
   "content_scripts": [
     {
-      "matches": ["https://mail.google.com/*"],
-      "js": ["content/injected-ui.js", "content/gmail.js"],
-      "css": ["content/injected-ui.css"],
-      "run_at": "document_idle"
-    },
-    {
-      "matches": ["https://*.linkedin.com/*"],
-      "js": ["content/injected-ui.js", "content/linkedin.js"],
-      "css": ["content/injected-ui.css"],
-      "run_at": "document_idle"
-    },
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content/generic.js"],
+      "matches": [
+        "https://mail.google.com/*",
+        "https://*.linkedin.com/*",
+        "<all_urls>"
+      ],
+      "js": [
+        "core/site-adapter.js",
+        "core/messaging.js",
+        "core/injector.js",
+        "sites/gmail.js",
+        "sites/linkedin.js",
+        "sites/generic.js",
+        "core/detector.js"
+      ],
+      "css": [
+        "content/injected-ui.css"
+      ],
       "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content/injected-ui.css", "icons/*"],
+      "resources": [
+        "content/injected-ui.css",
+        "icons/*"
+      ],
       "matches": ["<all_urls>"]
     }
   ]

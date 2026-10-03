@@ -1,4 +1,4 @@
-# Write4U — Task-Aware Personal Context Engine ✦
+# Writrieve — Task-Aware Personal Context & Grounded Writing Engine ✦
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -6,9 +6,9 @@
 [![Connectors](https://img.shields.io/badge/Connectors-Composio%20MCP%20%7C%20Managed%20OAuth-purple.svg)](backend/connectors/composio_provider.py)
 [![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-success.svg)](extension/manifest.json)
 
-> **Write4U is a task-aware personal context engine where an open-weight System-1 decision model (Laya) determines what context to retrieve, Composio provides authenticated access to the user's digital sources, a context-selection engine identifies the minimum sufficient evidence, and an open-weight LLM generates the final grounded response.**
+> **Writrieve is a task-aware personal context and writing engine where an open-weight System-1 decision model (Laya) determines what context to retrieve, Composio provides authenticated access to the user's digital sources, a context-selection engine identifies the minimum sufficient evidence, and an open-weight LLM generates the final grounded response.**
 
-Writing is the first application. Write4U runs right inside your browser (Gmail, LinkedIn, GitHub, or any web composer) via a native Chrome extension without blindly dumping hundreds of private messages into an LLM.
+Writing is the first application. Writrieve runs right inside your browser (Gmail, LinkedIn, GitHub, or any web composer) via a native Chrome extension without blindly dumping hundreds of private messages into an LLM.
 
 ---
 

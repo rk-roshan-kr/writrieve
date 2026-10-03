@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Write4U — Open-Weight Personal Context & Writing Engine",
+  "name": "Writrieve — Open-Weight Personal Context & Grounded Writing Engine",
   "version": "2.0.0",
   "description": "Native writing augmentation layer for Gmail, LinkedIn, and the web. Powered by Composio context, long-term memory, and open-weight models.",
   "icons": {

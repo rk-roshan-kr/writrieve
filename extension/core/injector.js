@@ -34,7 +34,7 @@ class Write4UInjector {
         </defs>
         <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
       </svg>
-      <span>✦ Write4U</span>
+      <span>✦ Writrieve</span>
     `;
 
     btn.addEventListener("click", (e) => {
@@ -58,7 +58,7 @@ class Write4UInjector {
       this.floatingBadge = document.createElement("button");
       this.floatingBadge.type = "button";
       this.floatingBadge.className = "write4u-badge-btn write4u-floating-pill";
-      this.floatingBadge.innerHTML = `<span>✦ Write4U</span>`;
+      this.floatingBadge.innerHTML = `<span>✦ Writrieve</span>`;
       document.body.appendChild(this.floatingBadge);
 
       this.floatingBadge.addEventListener("click", (e) => {
@@ -144,7 +144,7 @@ class Write4UInjector {
               </defs>
               <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
             </svg>
-            ✦ Write4U
+            ✦ Writrieve
             <span class="write4u-model-tag" id="w4u-detected-ctx">Native Context</span>
           </div>
           <button class="write4u-close-btn" id="w4u-modal-close">&times;</button>

@@ -69,13 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
           composioBtn.innerText = "🔗 Connect Gmail (Composio)";
         }
       } catch (e) {
-        alert("Failed to reach Write4U backend at " + API_BASE);
+        alert("Failed to reach Writrieve backend at " + API_BASE);
         composioBtn.innerText = "🔗 Connect Gmail (Composio)";
       }
     });
   }
 
-  // In-simulator Write4U Button Click
+  // In-simulator Writrieve Button Click
   const simWrite4uBtn = document.getElementById("sim-write4u-btn");
   simWrite4uBtn.addEventListener("click", () => {
     const pageContext = currentSiteMode === "gmail" ? {
@@ -106,8 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json();
 
       tableBody.innerHTML = data.map(row => {
-        const isW4U = row.system.includes("Write4U");
-        const rowClass = isW4U ? "highlight" : "";
+        const isWritrieve = row.system.includes("Writrieve") || row.system.includes("Write4U");
+        const rowClass = isWritrieve ? "highlight" : "";
         
         const noiseRate = Math.round(row.irrelevant_context_rate * 100);
         const noisePillClass = noiseRate <= 5 ? "green" : (noiseRate <= 50 ? "yellow" : "red");

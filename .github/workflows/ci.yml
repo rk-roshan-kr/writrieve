@@ -32,6 +32,13 @@ jobs:
       run: |
         pytest -v
 
+    - name: Run 50-task product stress test
+      run: |
+        python evaluation/stress_50.py
+      env:
+        CONTEXT_PROVIDER: mock
+        USE_OLLAMA: "false"
+
     - name: Run Empirical 3-Way Benchmark Verification
       run: |
         python evaluation/benchmark.py

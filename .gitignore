@@ -10,3 +10,12 @@ node_modules/
 dist/
 .DS_Store
 *.log
+*.aux
+*.out
+*.blg
+*.fls
+*.fdb_latexmk
+
+# Paper and Research Manuscript (untracked / not published under MIT)
+paper/
+docs/RESEARCH_SPECIFICATION.md

@@ -4,8 +4,12 @@ This intentionally exercises realistic writing tasks, ambiguity, sensitive reque
 platform constraints, missing evidence, conflicts, and cross-source context.
 It uses the repository's current controller path and mock provider in CI.
 """
-import os, json, time, traceback
+import os, sys, json, time, traceback
+from pathlib import Path
 from collections import Counter, defaultdict
+
+# Ensure project root is in sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 os.environ["CONTEXT_PROVIDER"] = "mock"
 os.environ["USE_OLLAMA"] = "false"

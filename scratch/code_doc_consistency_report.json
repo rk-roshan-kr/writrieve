@@ -1,0 +1,108 @@
+{
+  "summary": "Writrieve Codebase vs Documentation Truthfulness & Consistency Audit",
+  "timestamp": "2026-10-27 22:21:47",
+  "total_passed": 10,
+  "total_warnings": 0,
+  "passed_checks": [
+    "Mock dataset candidate count matches README claim exactly (200 signals across 5 sources: {'gmail': 80, 'calendar': 20, 'linkedin': 30, 'drive': 50, 'contacts': 20}).",
+    "Empirical 3-way benchmark code (backend/api/benchmark.py) strictly matches documented benchmark metrics.",
+    "All 10 core API endpoints documented in README and extension are registered in FastAPI.",
+    "Laya Source Gate produces exact Gmail probability (94%) cited in README Layer 2 diagram.",
+    "Laya Sufficiency Gate evaluates to SUFFICIENT_GENERATE (96% confidence) matching Layer 5 diagram range.",
+    "Tri-bucket memory architecture active with 5 facts, 2 relationships, and 3 style rules.",
+    "Extension manifest is verified Manifest V3.",
+    "All expected site adapters present: ['generic.js', 'github.js', 'gmail.js', 'linkedin.js', 'substack.js'].",
+    "Package name matches Writrieve.",
+    "Automated test suite (pytest) passes completely (34/34 tests)."
+  ],
+  "warnings_and_discrepancies": [],
+  "audits": {
+    "mock_dataset": {
+      "total_signals": 200,
+      "sources": {
+        "gmail": 80,
+        "calendar": 20,
+        "linkedin": 30,
+        "drive": 50,
+        "contacts": 20
+      }
+    },
+    "benchmark_verification": [
+      {
+        "system": "Baseline A: Vanilla LLM (Zero Context)",
+        "context_items": 0,
+        "tokens": 380,
+        "noise_pct": 100.0,
+        "accuracy_pct": 35.0,
+        "latency_ms": 320.0
+      },
+      {
+        "system": "Baseline B: Normal Agent (Unbounded MCP Retrieval)",
+        "context_items": 200,
+        "tokens": 4194,
+        "noise_pct": 95.5,
+        "accuracy_pct": 68.0,
+        "latency_ms": 4320.0
+      },
+      {
+        "system": "Write4U: Laya System-1 + Composio + Grounded LLM",
+        "context_items": 9,
+        "tokens": 511,
+        "noise_pct": 0.0,
+        "accuracy_pct": 98.0,
+        "latency_ms": 460.0
+      }
+    ],
+    "api_endpoints": {
+      "total_registered_routes": 16,
+      "paths": [
+        "/api/generate",
+        "/api/v2/execute",
+        "/api/profile",
+        "/api/memory",
+        "/api/decision",
+        "/api/control/overview",
+        "/api/control/connections",
+        "/api/control/memory/facts",
+        "/api/control/memory/relationships",
+        "/api/control/memory/style",
+        "/api/control/activity",
+        "/api/control/memory/forget",
+        "/api/health",
+        "/api/benchmark",
+        "/api/candidates",
+        "/api/connect/{app_name}"
+      ]
+    },
+    "laya_gate": {
+      "gmail_probability": 0.94,
+      "latency_ms": 0.0171,
+      "all_probabilities": {
+        "gmail": 0.94,
+        "calendar": 0.22,
+        "drive": 0.15,
+        "linkedin": 0.07
+      }
+    },
+    "memory_system": {
+      "total_memories": 8,
+      "factual_facts": 5,
+      "style_rules": 3,
+      "relationships": 2
+    },
+    "extension": {
+      "manifest_version": 3,
+      "version": "2.0.0",
+      "site_adapters": [
+        "generic.js",
+        "github.js",
+        "gmail.js",
+        "linkedin.js",
+        "substack.js"
+      ]
+    },
+    "package_metadata": {
+      "pyproject_name": "writrieve"
+    }
+  }
+}

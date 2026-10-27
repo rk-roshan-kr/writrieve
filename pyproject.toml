@@ -3,13 +3,13 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "write4u"
+name = "writrieve"
 version = "0.1.0"
 description = "Task-aware personal context engine for open-weight language models"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "Write4U Contributors" }
+    { name = "Writrieve Contributors" }
 ]
 keywords = [
     "context-engine",
@@ -50,7 +50,7 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/write4u/write4u"
-Repository = "https://github.com/write4u/write4u"
-"Bug Tracker" = "https://github.com/write4u/write4u/issues"
-Documentation = "https://github.com/write4u/write4u#readme"
+Homepage = "https://github.com/rk-roshan-kr/writrieve"
+Repository = "https://github.com/rk-roshan-kr/writrieve"
+"Bug Tracker" = "https://github.com/rk-roshan-kr/writrieve/issues"
+Documentation = "https://github.com/rk-roshan-kr/writrieve#readme"
